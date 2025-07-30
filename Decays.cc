@@ -95,6 +95,10 @@ public:
         
         if (!pythia.next()) {
             cout << "Event generation failed!" << endl;
+            cout << "   Id: " << Id << endl;
+            cout << "   E: " << E << endl;
+            cout << "   mass: " << mass << endl;
+            cout << "   p: " << p << endl;
         }
         
         std::vector<std::vector<double>> secondaries;

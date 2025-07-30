@@ -26,3 +26,12 @@ After configuration (press c) and generation (press g) you can now build and ins
 Now you can run the python test script. 
 
     python ../testPlugin.py
+
+# Citation
+
+If you use this plugin in your work, please cite:
+
+G. Di Marco, R. Alves Batista, M.A. Sánchez-Conde.  
+*Gamma rays as leptonic portals to energetic neutrinos: a new Monte Carlo approach*.  
+arXiv:2507.21867 [astro-ph.HE] (2025).  
+Available at: https://arxiv.org/abs/2507.21867
