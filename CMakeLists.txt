@@ -29,7 +29,7 @@ find_library(CRPROPA_LIB NAMES crpropa libcrpropa HINTS crpropa/ lib/crpropa crp
 
 
 # ---- PYTHIA8 discovery ----
-# You may pass -DPYTHIA8_DIR=/home/grindegreen/Applications/PYTHIA/pythia8315
+# You may pass -DPYTHIA8_DIR=~/Applications/PYTHIA/pythia8315
 if(NOT PYTHIA8_DIR AND DEFINED ENV{PYTHIA8})
   set(PYTHIA8_DIR $ENV{PYTHIA8})
 endif()
@@ -73,7 +73,6 @@ if(NOT PYTHIA8_LIBRARY)
   endif()
 endif()
 
-# Final sanity
 if(NOT EXISTS "${PYTHIA8_INCLUDE_DIR}/Pythia8/Pythia.h")
   message(FATAL_ERROR "Pythia header not found in ${PYTHIA8_INCLUDE_DIR}/Pythia8. \
 Pass -DPYTHIA8_DIR=/path/to/pythia or -DPYTHIA8_INCLUDE_DIR=/path/to/pythia/include")

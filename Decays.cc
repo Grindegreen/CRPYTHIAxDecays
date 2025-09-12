@@ -2,371 +2,335 @@
 
 #include "crpropa/Units.h"
 #include "crpropa/Random.h"
-#include "crpropa/Vector3.h"
-#include "crpropa/Variant.h"
 #include "crpropa/ParticleState.h"
 #include "crpropa/Candidate.h"
 
-#include <string>
-#include <cstdlib>
+#include <vector>
 #include <cmath>
+#include <cstdlib>
+#include <iostream>
 
 #include "Pythia8/Pythia.h"
 
-namespace Pythia8 {
+namespace {
 
+inline bool shouldKeepId(int id) {
+    int a = std::abs(id);
+    // Leptons and photons
+    if (a==11 || a==13 || a==15 || a==22) return true;
+    // Neutrinos
+    if (a==12 || a==14 || a==16) return true;
+    // Nucleons
+    if (a==2212 || a==2112) return true;
+    // Pions
+    if (a==111 || a==211) return true;
+    // Kaons
+    if (a==321 || a==311 || a==310 || a==130) return true;
+    return false;
+}
+
+// If you prefer a purely lifetime-based rule, set a threshold in mm:
+inline bool lifetimeLongEnough(const Pythia8::Pythia& p, int id, double ctau_keep_mm) {
+    return p.particleData.tau0(id) >= ctau_keep_mm;
+}
+
+// Thread-local PYTHIA only for ParticleData queries
+inline Pythia8::Pythia& pdg_db() {
+    // Pass printBanner=false; keep quiet; no init() needed for particleData
+    thread_local Pythia8::Pythia p("", false);
+    thread_local bool configured = false;
+    if (!configured) {
+        p.readString("Print:quiet = on");
+        configured = true;
+    }
+    return p;
+}
+
+// Convert PYTHIA’s (m[GeV], c*tau[mm]) to SI
+inline MassTau getMassTauFromPythia(int pdgid) {
+    using namespace crpropa;
+    Pythia8::Pythia& P = pdg_db();
+
+    const double m_GeV   = P.particleData.m0(pdgid);   // GeV/c^2 (PYTHIA units)
+    const double ctau_mm = P.particleData.tau0(pdgid); // c*tau in mm (0 => stable)
+
+    const double mass_SI = m_GeV * GeV / c_squared;    // kg
+    if (ctau_mm <= 0.0) return { mass_SI, 0.0, false };
+
+    const double tau_s   = (ctau_mm * 1e-3) / c_light; // s (tau = L/c)
+    return { mass_SI, tau_s, true };
+}
+
+// Small list of particles we generally allow to decay inside event gen
+inline const std::vector<int>& default_decay_list() {
+    static const std::vector<int> ids = {
+        // leptons
+        13,-13, 15,-15,
+        // pions
+        111, 211,-211,
+        // kaons
+        130, 310, 321,-321, 311,-311,
+        // some light resonances
+        113,213,-213, 223,221,331,333, 313,-313,323,-323,
+        // charm (D’s) and a couple baryons
+        411,-411, 421,-421, 431,-431, 4122,
+        // photons (stable), nucleons (stable) — included for completeness
+        22, 2212, 2112
+    };
+    return ids;
+}
+
+// Momentum magnitude from E and m (GeV)
+inline double momentum_from_E_m_GeV(double E_GeV, double m_GeV) {
+    const double e2 = E_GeV * E_GeV;
+    const double m2 = m_GeV * m_GeV;
+    return (e2 > m2) ? std::sqrt(e2 - m2) : 0.0;
+}
+
+} // anonymous namespace
+
+// ============================
+// Decay event generator (per call)
+// ============================
+namespace {
 class PythiaDecay {
-private:
-    
-    std::vector<std::vector<double>> secondaries;
-    
 public:
-    
-    PythiaDecay() {
-        Pythia pythia;
-        pythia.init();
-    };
-    
-    PythiaDecay(int Id, double E, crpropa::Vector3d dir, std::vector<int> IdDecaying, bool activeHadronization = false) {
-        std::string xmlDir = "./";
-        bool printBanner = false;
-        Pythia pythia(xmlDir, printBanner); // pythia instance
-        
-        crpropa::Random rand;
-        int seed = rand.randInt(900000000);
-        pythia.readString("Random:setSeed = on");
-        pythia.readString("Random:seed = " + std::to_string(seed));
-        
-        pythia.readString("ProcessLevel:all = off");
-        if (activeHadronization) {
-            pythia.readString("HadronLevel:Hadronize = on");
-        } else {
-            pythia.readString("HadronLevel:Hadronize = off");
-        }
-        
-        for (std::size_t i = 0; i < IdDecaying.size(); i++)
-            pythia.readString(std::to_string(IdDecaying[i]) + ":mayDecay = on"); // enable particle decay
-        
-        pythia.readString("Print:quiet = on");
-        pythia.readString("Init:showAllSettings = off");
-        pythia.readString("Init:showAllParticleData = off");
-        
-        pythia.init();
-        generateSecondaries(Id, E, dir, pythia);
-        
-    };
-    
-    double getMomentum(double E, double mass) {
-        return sqrt(E * E - mass * mass);
-    };
-    
-    void generateSecondaries(int Id, double E, crpropa::Vector3d dir, Pythia& pythia) {
-        
-        this->secondaries.clear();
-        
-        double mass = pythia.particleData.m0(Id);
-        
-        Event& event = pythia.event;
-        event.reset();
-        
-        double p = getMomentum(E, mass);
-        
-        // (id, status, mother1, mother2, daughter1, daughter2, color1, color2, px, py, pz, e, m)
-        if (std::abs(Id) == 15) {
-            // The tau polarization and tau decay correlation mechanism can be determined either using internal matrix elements or external SPINUP information provided in the event, e.g. via Les Houches Event Files (LHEF). The SPINUP digit is interpreted as the particle helicity state in the lab frame: -1 and 1 are longitudinal and 0 is transverse. Other values are not valid.
-            double scale = 1.0; // to understand!
-            int helicity;
-            
-            crpropa::Random random;
-            double rand = random.randUniform(0, 1);
-            
-            if (rand < 1. / 3.) {
-                helicity = 0;
-            } else if (rand < 2. / 3.) {
-                helicity = 1;
-            } else {
-                helicity = -1;
+    PythiaDecay(int Id, double E_GeV, const crpropa::Vector3d& dir,
+                bool hadronize, bool oneStep)
+    : oneStep_(oneStep) {
+        using namespace Pythia8;
+
+        p_ = new Pythia("", false);
+        p_->readString("Print:quiet = on");
+        p_->readString("ProcessLevel:all = off");
+        p_->readString(std::string("HadronLevel:Hadronize = ") + (hadronize ? "on" : "off"));
+        p_->readString("ParticleDecays:limitTau0 = off"); // allow all decays
+
+        // Seed
+        crpropa::Random r;
+        const int seed = r.randInt(900000000);
+        p_->readString("Random:setSeed = on");
+        p_->readString("Random:seed = " + std::to_string(seed));
+
+        // Allow common decays + the parent
+        const std::vector<int>& ids = default_decay_list();
+        for (size_t i = 0; i < ids.size(); ++i)
+            p_->readString(std::to_string(ids[i]) + ":mayDecay = on");
+        p_->readString(std::to_string(Id) + ":mayDecay = on");
+
+        p_->init();
+
+        // Build the one-particle event at index 1
+        const double m0   = p_->particleData.m0(Id);
+        const double pabs = momentum_from_E_m_GeV(E_GeV, m0);
+
+        Event& ev = p_->event;
+        ev.reset();
+        ev.append(Id, 1, 0, 0, 0, 0, 0, 0,
+                  pabs*dir.x, pabs*dir.y, pabs*dir.z, E_GeV, m0);
+
+        // IMPORTANT: process user-supplied event
+        // - moreDecays(): do decays of particles in the current event
+        // - forceHadronLevel(): optional hadronization after decays (if enabled)
+        if (!p_->moreDecays()) return;
+        if (!oneStep_ && hadronize) p_->forceHadronLevel();
+
+        const int parentIdx = 1;
+        std::vector<std::vector<double> > out;
+
+        if (oneStep_) {
+            // Collect direct daughters of the parent
+            std::vector<int> seeds;
+            for (int i = 0; i < ev.size(); ++i) {
+                if (ev[i].mother1() == parentIdx || ev[i].mother2() == parentIdx)
+                    seeds.push_back(i);
             }
-            
-            event.append(Id, 1, 0, 0, 0, 0, 0, 0, p * dir.x, p * dir.y, p * dir.z, E, mass, helicity, scale);
+
+            // Walk down only through very short-lived resonances until we hit "keepable" species
+            const double CTAU_KEEP_MM = 0.1; // keep anything with c*tau >= 0.1 mm; collapses ρ, K*, ϕ, a1, … 
+
+            std::vector<int> stack(seeds.begin(), seeds.end());
+            while (!stack.empty()) {
+                int i = stack.back(); stack.pop_back();
+                const int id = ev[i].id();
+
+                const bool keep_by_id  = shouldKeepId(id);
+                const bool keep_by_tau = lifetimeLongEnough(*p_, id, CTAU_KEEP_MM);
+
+                // If keepable (by species or lifetime), record it
+                if (keep_by_id || keep_by_tau || ev[i].isFinal()) {
+                    out.push_back({ (double)id, ev[i].px(), ev[i].py(), ev[i].pz(), ev[i].e() });
+                    continue;
+                }
+
+                // Otherwise, if this daughter has its own daughters, descend one vertex
+                const int d1 = ev[i].daughter1();
+                const int d2 = ev[i].daughter2();
+                if (d1 > 0 && d2 >= d1) {
+                    for (int j = d1; j <= d2; ++j) stack.push_back(j);
+                } else {
+                    // No recorded decay products — keep it as a fallback
+                    out.push_back({ (double)id, ev[i].px(), ev[i].py(), ev[i].pz(), ev[i].e() });
+                }
+            }
         } else {
-            event.append(Id, 1, 0, 0, 0, 0, 0, 0, p * dir.x, p * dir.y, p * dir.z, E, mass);
-        }
-        
-        if (!pythia.next()) {
-            cout << "Event generation failed!" << endl;
-            cout << "   Id: " << Id << endl;
-            cout << "   E: " << E << endl;
-            cout << "   mass: " << mass << endl;
-            cout << "   p: " << p << endl;
-        }
-        
-        std::vector<std::vector<double>> secondaries;
-        
-        for (std::size_t i = 0; i < event.size(); ++i) {
-            if (event[i].isFinal()) {
-                vector<double> prop = { (double) event[i].id(), event[i].px(), event[i].py(), event[i].pz(), event[i].e() };
-                secondaries.push_back(prop);
+            // Full cascade: keep finals
+            for (int i = 0; i < ev.size(); ++i) {
+                if (!ev[i].isFinal()) continue;
+                out.push_back({ (double)ev[i].id(), ev[i].px(), ev[i].py(), ev[i].pz(), ev[i].e() });
             }
         }
-        this->secondaries = secondaries;
-    };
-    
-    std::vector<std::vector<double>> getSecondaries() {
-        return this->secondaries;
-    };
+
+        rows_.swap(out);
+    }
+
+    ~PythiaDecay() { delete p_; }
+
+    const std::vector<std::vector<double>>& rows() const { return rows_; }
+
+private:
+    Pythia8::Pythia* p_;
+    bool oneStep_;
+    std::vector<std::vector<double>> rows_; // {id, px, py, pz, e} (GeV)
 };
-} // end Pythia8 namespace
+} // anon
 
-static const double tau_muon = 2.1969811e-6 * crpropa::second; // averaged proper time of the muon decay
-static const double mass_muon = 1.883531627e-28 * crpropa::kilogram;
+// ============================
+// Decays (CRPropa Module)
+// ============================
 
-static const double tau_tauon = 2.903e-13 * crpropa::second;
-static const double mass_tauon = 3.167e-27 * crpropa::kilogram;
-
-static const double tau_neutral_pion = 8.43e-17 * crpropa::second;
-
-static const double tau_charged_pion = 2.6033e-8 * crpropa::second; // averaged proper time of the charged pion decay
-static const double tau_W_boson = 3e-25 * crpropa::second;
-
-// mass W boson
-static const double massWGeV = 80.379;
-static const double mass_W_boson = 1.43288582e-25 * crpropa::kilogram;
-
-// static const double mW2 = (mWkg*c_light**2.) ** 2; //squared W mass [J^2/c^4]
-
-// mass charged pion
-static const double massChargedPionGeV = 139.57039e-3; // GeV / c^2
-static const double massNeutralPionGeV = 134.9768e-3; // GeV / c^2
-
-static const double mass_neutral_pion = mass_W_boson * massNeutralPionGeV / massWGeV;
-static const double mass_charged_pion = mass_W_boson * massChargedPionGeV / massWGeV;
-// static const double mcpic2 = mass_cpion * crpropa::c_squared;
-
-Decays::Decays(bool haveOtherSecondaries, bool haveNeutrinos, bool angularCorrection, double limit) { // double thinning,
-    
-    // setThinning(thinning);
-    setLimit(limit);
-    setHaveOtherSecondaries(haveOtherSecondaries);
-    setHaveNeutrinos(haveNeutrinos);
-    setAngularCorrection(angularCorrection);
+Decays::Decays(bool haveOtherSecondaries,
+               bool haveNeutrinos,
+               bool angularCorrection,
+               double limit)
+: haveOtherSecondaries_(haveOtherSecondaries)
+, haveNeutrinos_(haveNeutrinos)
+, angularCorrection_(angularCorrection)
+, limit_(limit) {
     setDescription("Decay from PYTHIA");
-    
 }
 
-void Decays::setHaveOtherSecondaries(bool haveOtherSecondaries) {
-    this->haveOtherSecondaries = haveOtherSecondaries;
-}
+void Decays::setHaveOtherSecondaries(bool v) { haveOtherSecondaries_ = v; }
+void Decays::setHaveNeutrinos(bool v)        { haveNeutrinos_ = v; }
+void Decays::setAngularCorrection(bool v)    { angularCorrection_ = v; }
+void Decays::setLimit(double v)              { limit_ = v; }
 
-void Decays::setHaveNeutrinos(bool haveNeutrinos) {
-    this->haveNeutrinos = haveNeutrinos;
-}
+void Decays::setDecayTag(std::string tag) const { decayTag_ = tag; }
+std::string Decays::getDecayTag() const { return decayTag_; }
 
-void Decays::setAngularCorrection(bool angularCorrection) {
-    this->angularCorrection = angularCorrection;
-}
+void Decays::performDecay(crpropa::Candidate* candidate) const {
+    using namespace crpropa;
 
-void Decays::setLimit(double limit) {
-    this->limit = limit;
-}
+    const int    Id   = candidate->current.getId();
+    const double E_J  = candidate->current.getEnergy();      // J
+    const double E_GeV= E_J / GeV;                           // GeV (for PYTHIA)
+    const Vector3d dir= candidate->current.getDirection();
 
-/**
-void Decays::setThinning(double thinning) {
-    this->thinning = thinning;
-}
-*/
+    // Decide one-step mode
+    const bool oneStep = true;
 
-void Decays::performDecay(crpropa::Candidate *candidate) const {
-    
-    int Id = candidate->current.getId();
-    double E = candidate->current.getEnergy();
-    double z = candidate->getRedshift();
-    double w = candidate->getWeight();
-    crpropa::Vector3d dir = candidate->current.getDirection();
-    crpropa::Vector3d pos0 = candidate->current.getPosition();
-    double trajectoryLength = candidate->getTrajectoryLength();
-    crpropa::Candidate::PropertyMap properties = candidate->properties;
-    crpropa::ParticleState source = candidate->source;
-    crpropa::ParticleState created = candidate->created;
-    crpropa::ParticleState current = candidate->current;
-    crpropa::ParticleState previous = candidate->previous;
-    crpropa::Candidate* parent = candidate;
-    
-    candidate->setActive(false);
-    
-    std::vector<int> IdDecaying;
-    bool hadronize;
-    
-    if (std::abs(Id) == 24) {
-        IdDecaying = {13, 211, 130, 310, 311, 321};
-        hadronize = true;
-    } else if (std::abs(Id) == 211) {
-        IdDecaying = {13, 211};
-        hadronize = false;
-    } else if (Id == 111) {
-        IdDecaying = {111};
-        hadronize = false;
-    } else if (std::abs(Id) == 15) {
-        IdDecaying = {13, 15, 211, 111, 130, 310, 311, 321};
-        hadronize = true;
-    } else {
-        IdDecaying = {13};
-        hadronize = false;
-    }
-    
-    Pythia8::PythiaDecay pythiaDecay(Id, E / crpropa::GeV, dir, IdDecaying, hadronize);
-    
-    std::vector<std::vector<double>> secondaries = pythiaDecay.getSecondaries();
-    
-    std::string decayTag = getDecayTag();
-    // double w = 1; // not developed the decay weight
-    
-    // sample random position along current step
-    crpropa::Random &random = crpropa::Random::instance();
-    crpropa::Vector3d pos = random.randomInterpolatedPosition(candidate->previous.getPosition(), candidate->current.getPosition());
-    
-    for (std::size_t i = 0; i < secondaries.size(); i++) {
-        // to see how to use the w (it should be multiplicative)
-        std::vector<double> row = secondaries[i];
-        
-        if ((std::abs(int(row[0])) == 12 or std::abs(int(row[0])) == 12 or std::abs(int(row[0])) == 12)) {
-            if (haveNeutrinos) {
-                // row[0], row[4] * crpropa::GeV, pos, cDir / cDir.getR(), z, w, decayTag
-                crpropa::Candidate* c = new crpropa::Candidate();
-                
-                c->setRedshift(z);
-                c->setTrajectoryLength(trajectoryLength - (pos0 - pos).getR());
-                c->setWeight(w); // it inherits the weight from the parent
-                c->setTagOrigin(decayTag);
-                for (crpropa::Candidate::PropertyMap::const_iterator it = properties.begin(); it != properties.end(); ++it) {
-                        c->setProperty(it->first, it->second);
-                    }
-                // it can be done more efficiently
-                c->source = source;
-                c->previous = previous;
-                c->created = previous;
-                c->current = current;
-                
-                c->current.setId(int(row[0]));
-                c->current.setEnergy(row[4] * crpropa::GeV);
-                c->current.setPosition(pos);
-                c->created.setPosition(pos);
-                if (angularCorrection) {
-                    crpropa::Vector3d cDir(row[1], row[2], row[3]);
-                    c->current.setDirection(cDir / cDir.getR());
-                }
-                c->parent = parent; // see which parameters the outputs take
-                
-                candidate->addSecondary(c);
-            } else {
-                return;
-            }
-        } else if (haveOtherSecondaries) {
-            crpropa::Candidate* c = new crpropa::Candidate();
-            
-            c->setRedshift(z);
-            c->setTrajectoryLength(trajectoryLength - (pos0 - pos).getR());
-            c->setWeight(w); // it inherits the weight from the parent
-            c->setTagOrigin(decayTag);
-            
-            for (crpropa::Candidate::PropertyMap::const_iterator it = properties.begin(); it != properties.end(); ++it) {
-                    c->setProperty(it->first, it->second);
-                }
-            
-            c->source = source;
-            c->previous = previous;
-            c->created = previous;
-            c->current = current;
-            c->current.setId(int(row[0]));
-            c->current.setEnergy(row[4] * crpropa::GeV);
-            c->current.setPosition(pos);
-            c->created.setPosition(pos);
-            if (angularCorrection) {
-                crpropa::Vector3d cDir(row[1], row[2], row[3]);
-                c->current.setDirection(cDir / cDir.getR());
-            }
-            c->parent = parent;
-            candidate->addSecondary(c);
-        } else {
-            return;
+    // If one-step decay, turn hadronization OFF even for τ/W,
+    // otherwise their quark daughters will hadronize (a second step).
+    const bool hadronize =
+        (!oneStep) && ((std::abs(Id) == 15) || (std::abs(Id) == 24));
+
+    PythiaDecay decay(Id, E_GeV, dir, hadronize, oneStep);
+    const auto& secs = decay.rows();
+
+    // Sample decay position along the current step
+    Random& rng = Random::instance();
+    const Vector3d pos0 = candidate->current.getPosition();
+    const Vector3d pos  = rng.randomInterpolatedPosition(candidate->previous.getPosition(), pos0);
+
+    const double z    = candidate->getRedshift();
+    const double w    = candidate->getWeight();
+    const double traj = candidate->getTrajectoryLength();
+    const Candidate::PropertyMap& props = candidate->properties;
+    Candidate* parent = candidate;
+
+    for (size_t i = 0; i < secs.size(); ++i) {
+        const std::vector<double>& row = secs[i];
+        const int    id    = static_cast<int>(row[0]);
+        const int    absid = std::abs(id);
+        const bool   isNu  = (absid == 12 || absid == 14 || absid == 16);
+
+        if (isNu && !haveNeutrinos_)         continue; // skip neutrinos if disabled
+        if (!isNu && !haveOtherSecondaries_)  continue; // skip others if disabled
+
+        Candidate* c = new Candidate();
+        c->setRedshift(z);
+        c->setTrajectoryLength(traj - (pos0 - pos).getR());
+        c->setWeight(w);
+        c->setTagOrigin(getDecayTag());
+
+        // propagate existing properties
+        for (Candidate::PropertyMap::const_iterator it = props.begin(); it != props.end(); ++it)
+            c->setProperty(it->first, it->second);
+
+        // copy states & set identity/kinematics
+        c->source   = candidate->source;
+        c->previous = candidate->previous;
+        c->created  = candidate->previous;
+        c->current  = candidate->current;
+
+        c->current.setId(id);
+        c->current.setEnergy(row[4] * GeV);
+        c->current.setPosition(pos);
+        c->created.setPosition(pos);
+
+        if (angularCorrection_) {
+            Vector3d pdir(row[1], row[2], row[3]);
+            const double pr = pdir.getR();
+            if (pr > 0) c->current.setDirection(pdir / pr);
         }
+
+        c->parent = parent;
+        candidate->addSecondary(c);
     }
+
+    // deactivate parent after generating decay products
+    candidate->setActive(false);
 }
 
-void Decays::process(crpropa::Candidate *candidate) const {
-    
-    int Id = candidate->current.getId();
-    double z = candidate->getRedshift();
-    double E = candidate->current.getEnergy();
-    double d = candidate->getTrajectoryLength();
-    
-    double t_lab, gamma;
-    std::string tag;
-    
-    // muons, charged/neutral pions, tauons, W bosons
-    if (std::abs(Id) == 13) {
-        
-        gamma = E / mass_muon / crpropa::c_squared;
-        t_lab = gamma * tau_muon;
-        
-        tag = "MD";
-        
-    } else if (std::abs(Id) == 211) {
-        
-        gamma = E / mass_charged_pion / crpropa::c_squared;
-        t_lab = gamma * tau_charged_pion;
-        
-        tag = "CPD";
-        
-    } else if (std::abs(Id) == 15) {
-        
-        gamma = E / mass_tauon / crpropa::c_squared;
-        t_lab = gamma * tau_tauon;
-        
-        tag = "TD";
-        
-    } else if (Id == 111) {
-        
-        gamma = E / mass_neutral_pion / crpropa::c_squared;
-        t_lab = gamma * tau_neutral_pion;
-        
-        tag = "NPD";
-        
-    } else if (std::abs(Id) == 24) {
-        
-        gamma = E / mass_W_boson / crpropa::c_squared;
-        t_lab = gamma * tau_W_boson;
-        
-        tag = "WD";
-        
-    } else {
-        return;
-    }
-    
-    setDecayTag(tag);
-        
-    double beta = sqrt(1 - 1 / gamma / gamma);
-    double distance = crpropa::c_light * beta * t_lab;
-    double decayRate = 1 / distance; // see if to multiply for (1+z)
-    
-    // check if it makes sense
-    crpropa::Random &random = crpropa::Random::instance();
-    double randDistance = -log(random.rand()) / decayRate;
-    
+void Decays::process(crpropa::Candidate* candidate) const {
+    using namespace crpropa;
+
+    const int    Id = candidate->current.getId();
+    const double E  = candidate->current.getEnergy();   // J
+    const double d  = candidate->getTrajectoryLength(); // m
+
+    const MassTau mt = getMassTauFromPythia(Id);
+    if (!mt.hasTau || mt.tau_s <= 0.0) return; // stable -> nothing to do
+
+    // Relativistic factors
+    double gamma = E / (mt.mass_SI * c_squared);
+    if (gamma < 1.0) gamma = 1.0;
+    const double beta = std::sqrt(1.0 - 1.0 / (gamma * gamma));
+
+    // Mean decay distance in lab frame and rate
+    const double t_lab  = gamma * mt.tau_s;
+    const double L_mean = c_light * beta * t_lab; // meters
+    const double rate   = (L_mean > 0.0) ? 1.0 / L_mean : 0.0;
+
+    const int aId = std::abs(Id);
+    if      (aId == 13)  setDecayTag("MD");
+    else if (aId == 211) setDecayTag("CPD");
+    else if (Id  == 111) setDecayTag("NPD");
+    else if (aId == 15)  setDecayTag("TD");
+    else if (aId == 24)  setDecayTag("WD");
+    else if (aId == 321 || Id == 130 || Id == 310) setDecayTag("KD");
+    else setDecayTag("HD");
+
+    // Exponential decay sampling along the current step
+    Random& rng = Random::instance();
+    const double randDistance = (rate > 0.0) ? -std::log(rng.rand()) / rate : 1e300;
+
     if (d <= randDistance) {
-        candidate->limitNextStep(limit / decayRate);
-        return;
-    } else {
-        performDecay(candidate);
+        // Not yet decayed: reduce step to resolve decay soon
+        if (rate > 0.0) candidate->limitNextStep(limit_ / rate);
         return;
     }
-}
 
-void Decays::setDecayTag(std::string tag) const {
-    this->decayTag = tag;
+    // Decay occurs in this step
+    performDecay(candidate);
 }
-
-std::string Decays::getDecayTag() const {
-    return this->decayTag;
-}
-

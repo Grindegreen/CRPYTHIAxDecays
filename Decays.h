@@ -1,48 +1,63 @@
-#include <crpropa/Module.h>
-#include <crpropa/Candidate.h>
+#ifndef DECAYS_H
+#define DECAYS_H
 
-#include<string>
+#include "crpropa/Module.h"
+#include "crpropa/Vector3.h"
+#include <string>
 
+// Simple container for mass/lifetime (SI units)
+struct MassTau {
+    double mass_SI; // kg
+    double tau_s;   // seconds
+    bool   hasTau;  // false => stable
+};
+
+/**
+ * Decays
+ * ------
+ * Propagates unstable particles until decay length is reached,
+ * then generates secondaries with PYTHIA and injects them.
+ *
+ * Options:
+ *  - haveOtherSecondaries : keep non-neutrino secondaries
+ *  - haveNeutrinos        : keep neutrinos (νe, νμ, ντ)
+ *  - angularCorrection    : set daughter directions from PYTHIA 3-momenta
+ *  - limit                : step limiter factor (ds ~ limit / decayRate)
+ */
 class Decays : public crpropa::Module {
-private:
-    
-    bool haveOtherSecondaries;
-    bool haveNeutrinos;
-    bool angularCorrection;
-    double limit;
-    // double thinning;
-    mutable std::string decayTag;
-
 public:
-    
-    /** Constructor
-     @param haveOtherSecondaries    if true, add secondary particles as candidates that are not neutrinos
-     @param haveNeutrinos    if true, add secondary neutrinos as candidates
-     @param angularCorrection    if true, consider the decay angular distribution of the secondaries
-     // @param thinning        weighted sampling of secondaries (0: all particles are tracked; 1: maximum thinning)
-     @param limit            step size limit as fraction of mean free path
-     */
-    Decays(bool haveOtherSecondaries = false, bool haveNeutrinos = false, bool angularCorrection = false, double limit = 0.1); // double thinning = 0,
-    
-    void setHaveOtherSecondaries(bool haveOtherSecondaries);
-    
-    void setHaveNeutrinos(bool haveNeutrinos);
-    
-    void setAngularCorrection(bool angularCorrection);
-    
-    /** Limit the propagation step to a fraction of the mean free path
-     * @param limit fraction of the mean free path
-     */
-    void setLimit(double limit);
-    
-    /** Apply thinning with a given thinning factor
-     * @param thinning factor of thinning (0: no thinning, 1: maximum thinning)
-     */
-    // void setThinning(double thinning);
-    
+    Decays(bool haveOtherSecondaries = true,
+           bool haveNeutrinos        = true,
+           bool angularCorrection    = true,
+           double limit              = 1.0);
+
+    void process(crpropa::Candidate* candidate) const override;
+
+    // Config
+    void setHaveOtherSecondaries(bool v);
+    void setHaveNeutrinos(bool v);
+    void setAngularCorrection(bool v);
+    void setLimit(double v);
+
+    // Tag helpers (e.g. "MD","CPD","KD","HD")
     void setDecayTag(std::string tag) const;
     std::string getDecayTag() const;
-    
-    void performDecay(crpropa::Candidate *candidate) const;
-    void process(crpropa::Candidate *candidate) const;
+
+    std::string getDescription() const override { return description_; }
+    void setDescription(const std::string& d) { description_ = d; }
+
+private:
+    void performDecay(crpropa::Candidate* candidate) const;
+
+    // user config
+    bool   haveOtherSecondaries_;
+    bool   haveNeutrinos_;
+    bool   angularCorrection_;
+    double limit_;
+    std::string description_ = "Decay from PYTHIA";
+
+    // mutable because updated during process()
+    mutable std::string decayTag_;
 };
+
+#endif // DECAYS_H
