@@ -95,7 +95,7 @@ inline double momentum_from_E_m_GeV(double E_GeV, double m_GeV) {
 namespace {
 class PythiaDecay {
 public:
-    PythiaDecay(int Id, double E_GeV, const crpropa::Vector3d& dir,
+    PythiaDecay(int Id, double E_parent_GeV, const crpropa::Vector3d& dir,
                 bool hadronize, bool oneStep)
     : oneStep_(oneStep) {
         using namespace Pythia8;
@@ -122,12 +122,13 @@ public:
 
         // Build the one-particle event at index 1
         const double m0   = p_->particleData.m0(Id);
-        const double pabs = momentum_from_E_m_GeV(E_GeV, m0);
 
+        // Now compute |p| from total E
+        const double pabs = momentum_from_E_m_GeV(E_parent_GeV, m0);
         Event& ev = p_->event;
         ev.reset();
         ev.append(Id, 1, 0, 0, 0, 0, 0, 0,
-                  pabs*dir.x, pabs*dir.y, pabs*dir.z, E_GeV, m0);
+                  pabs*dir.x, pabs*dir.y, pabs*dir.z, E_parent_GeV, m0);
 
         // IMPORTANT: process user-supplied event
         // - moreDecays(): do decays of particles in the current event
@@ -155,21 +156,20 @@ public:
                 const int id = ev[i].id();
 
                 const bool keep_by_id  = shouldKeepId(id);
-                const bool keep_by_tau = lifetimeLongEnough(*p_, id, CTAU_KEEP_MM);
+                const bool keep_by_tau = (p_->particleData.tau0(id) >= CTAU_KEEP_MM);
 
-                // If keepable (by species or lifetime), record it
-                if (keep_by_id || keep_by_tau || ev[i].isFinal()) {
+                if (keep_by_id || keep_by_tau) {
                     out.push_back({ (double)id, ev[i].px(), ev[i].py(), ev[i].pz(), ev[i].e() });
-                    continue;
+                    continue; // IMPORTANT: do NOT descend further from a kept node
                 }
 
-                // Otherwise, if this daughter has its own daughters, descend one vertex
+                // Not keepable → try to replace by its daughters (one vertex deeper)
                 const int d1 = ev[i].daughter1();
                 const int d2 = ev[i].daughter2();
                 if (d1 > 0 && d2 >= d1) {
                     for (int j = d1; j <= d2; ++j) stack.push_back(j);
                 } else {
-                    // No recorded decay products — keep it as a fallback
+                    // Leaf without recorded daughters → keep as fallback
                     out.push_back({ (double)id, ev[i].px(), ev[i].py(), ev[i].pz(), ev[i].e() });
                 }
             }
@@ -179,6 +179,38 @@ public:
                 if (!ev[i].isFinal()) continue;
                 out.push_back({ (double)ev[i].id(), ev[i].px(), ev[i].py(), ev[i].pz(), ev[i].e() });
             }
+        }
+
+        // Parent total energy in GeV — use the exact value you appended to Pythia
+        const double E_parent = E_parent_GeV;   // the total you computed and passed to ev.append()
+
+        // Sum daughters
+        double E_sum = 0.0;
+        for (auto &r : out) E_sum += r[4];
+
+        // Robust "is greater" with relative & absolute tolerances
+        auto exceeds = [](double a, double b) {
+            const double rel_tol = 1e-6;   // allow 1 ppm relative drift
+            const double abs_tol = 1e-6;   // allow ~micro-GeV absolute drift
+            return (a - b) > std::max(abs_tol, rel_tol * std::max(1.0, b));
+        };
+
+        if (exceeds(E_sum, E_parent) && E_sum > 0.0) {
+            const double scale = E_parent / E_sum;
+
+            // Rescale momenta and recompute energies on mass shell
+            for (auto &r : out) {
+                const int kid   = static_cast<int>(r[0]);
+                const double m  = p_->particleData.m0(kid);
+                r[1] *= scale; r[2] *= scale; r[3] *= scale;
+                const double p2 = r[1]*r[1] + r[2]*r[2] + r[3]*r[3];
+                r[4] = std::sqrt(std::max(0.0, p2 + m*m));
+            }
+
+            // Single, clean warning
+            std::cerr << "[Decays] WARNING: sum(E_daughters)=" << std::setprecision(12) << E_sum
+                    << " GeV > parent=" << E_parent
+                    << " GeV. Scaled by " << scale << " and re-massed.\n";
         }
 
         rows_.swap(out);
@@ -222,9 +254,15 @@ void Decays::performDecay(crpropa::Candidate* candidate) const {
     using namespace crpropa;
 
     const int    Id   = candidate->current.getId();
-    const double E_J  = candidate->current.getEnergy();      // J
-    const double E_GeV= E_J / GeV;                           // GeV (for PYTHIA)
-    const Vector3d dir= candidate->current.getDirection();
+    const double E_parent_J = candidate->current.getEnergy();   // CRPropa (J)
+    double       E_parent_GeV = E_parent_J / GeV;               // convert to GeV
+
+    // If your CRPropa energy is *kinetic*, promote to total here:
+    const double m0_GeV = pdg_db().particleData.m0(Id);         // Pythia mass
+    const bool   energyIsKinetic = true;
+    if (energyIsKinetic) E_parent_GeV += m0_GeV;
+
+    const Vector3d dir = candidate->current.getDirection();
 
     // Decide one-step mode
     const bool oneStep = true;
@@ -234,7 +272,7 @@ void Decays::performDecay(crpropa::Candidate* candidate) const {
     const bool hadronize =
         (!oneStep) && ((std::abs(Id) == 15) || (std::abs(Id) == 24));
 
-    PythiaDecay decay(Id, E_GeV, dir, hadronize, oneStep);
+    PythiaDecay decay(Id, E_parent_GeV, dir, hadronize, oneStep);
     const auto& secs = decay.rows();
 
     // Sample decay position along the current step
@@ -269,8 +307,8 @@ void Decays::performDecay(crpropa::Candidate* candidate) const {
 
         // copy states & set identity/kinematics
         c->source   = candidate->source;
-        c->previous = candidate->previous;
-        c->created  = candidate->previous;
+        c->previous = parent->current;
+        c->created  = parent->current;
         c->current  = candidate->current;
 
         c->current.setId(id);
@@ -315,7 +353,7 @@ void Decays::process(crpropa::Candidate* candidate) const {
     const int aId = std::abs(Id);
     if      (aId == 13)  setDecayTag("MD");
     else if (aId == 211) setDecayTag("CPD");
-    else if (Id  == 111) setDecayTag("NPD");
+    else if (aId  == 111) setDecayTag("NPD");
     else if (aId == 15)  setDecayTag("TD");
     else if (aId == 24)  setDecayTag("WD");
     else if (aId == 321 || Id == 130 || Id == 310) setDecayTag("KD");
