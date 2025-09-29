@@ -87,6 +87,16 @@ inline double momentum_from_E_m_GeV(double E_GeV, double m_GeV) {
     return (e2 > m2) ? std::sqrt(e2 - m2) : 0.0;
 }
 
+inline std::string tagForParent(int parentAbsId) {
+    if      (parentAbsId == 13)  return "MD";
+    else if (parentAbsId == 211) return "CPD";
+    else if (parentAbsId == 111) return "NPD";
+    else if (parentAbsId == 15)  return "TD";
+    else if (parentAbsId == 24)  return "WD";
+    else if (parentAbsId == 321 || parentAbsId == 130 || parentAbsId == 310) return "KD";
+    else return "HD";
+}
+
 } // anonymous namespace
 
 // ============================
@@ -137,7 +147,17 @@ public:
         if (!oneStep_ && hadronize) p_->forceHadronLevel();
 
         const int parentIdx = 1;
-        std::vector<std::vector<double> > out;
+        std::vector<std::vector<double>> out; // {id, px, py, pz, e, mother_id}
+
+        // Helper to push a particle with its *immediate mother PDG* captured
+        auto push_particle = [&](int i) {
+            const int id = ev[i].id();
+            int momIdx = ev[i].mother1();            // 0 if none
+            if (momIdx < 0 || momIdx >= ev.size())   // guard
+                momIdx = 0;
+            const int momId = (momIdx > 0) ? ev[momIdx].id() : 0;
+            out.push_back({ (double)id, ev[i].px(), ev[i].py(), ev[i].pz(), ev[i].e(), (double)momId });
+        };
 
         if (oneStep_) {
             // Collect direct daughters of the parent
@@ -180,39 +200,6 @@ public:
                 out.push_back({ (double)ev[i].id(), ev[i].px(), ev[i].py(), ev[i].pz(), ev[i].e() });
             }
         }
-
-        // Parent total energy in GeV — use the exact value you appended to Pythia
-        const double E_parent = E_parent_GeV;   // the total you computed and passed to ev.append()
-
-        // Sum daughters
-        double E_sum = 0.0;
-        for (auto &r : out) E_sum += r[4];
-
-        // Robust "is greater" with relative & absolute tolerances
-        auto exceeds = [](double a, double b) {
-            const double rel_tol = 1e-6;   // allow 1 ppm relative drift
-            const double abs_tol = 1e-6;   // allow ~micro-GeV absolute drift
-            return (a - b) > std::max(abs_tol, rel_tol * std::max(1.0, b));
-        };
-
-        if (exceeds(E_sum, E_parent) && E_sum > 0.0) {
-            const double scale = E_parent / E_sum;
-
-            // Rescale momenta and recompute energies on mass shell
-            for (auto &r : out) {
-                const int kid   = static_cast<int>(r[0]);
-                const double m  = p_->particleData.m0(kid);
-                r[1] *= scale; r[2] *= scale; r[3] *= scale;
-                const double p2 = r[1]*r[1] + r[2]*r[2] + r[3]*r[3];
-                r[4] = std::sqrt(std::max(0.0, p2 + m*m));
-            }
-
-            // Single, clean warning
-            std::cerr << "[Decays] WARNING: sum(E_daughters)=" << std::setprecision(12) << E_sum
-                    << " GeV > parent=" << E_parent
-                    << " GeV. Scaled by " << scale << " and re-massed.\n";
-        }
-
         rows_.swap(out);
     }
 
@@ -223,7 +210,7 @@ public:
 private:
     Pythia8::Pythia* p_;
     bool oneStep_;
-    std::vector<std::vector<double>> rows_; // {id, px, py, pz, e} (GeV)
+    std::vector<std::vector<double>> rows_; // {id, px, py, pz, e, mother_id} (GeV)
 };
 } // anon
 
@@ -291,6 +278,8 @@ void Decays::performDecay(crpropa::Candidate* candidate) const {
         const int    id    = static_cast<int>(row[0]);
         const int    absid = std::abs(id);
         const bool   isNu  = (absid == 12 || absid == 14 || absid == 16);
+        const int    momId   = (row.size() >= 6) ? static_cast<int>(row[5]) : candidate->current.getId();
+        const int    absMom  = std::abs(momId);
 
         if (isNu && !haveNeutrinos_)         continue; // skip neutrinos if disabled
         if (!isNu && !haveOtherSecondaries_)  continue; // skip others if disabled
@@ -299,7 +288,8 @@ void Decays::performDecay(crpropa::Candidate* candidate) const {
         c->setRedshift(z);
         c->setTrajectoryLength(traj - (pos0 - pos).getR());
         c->setWeight(w);
-        c->setTagOrigin(getDecayTag());
+        
+        c->setTagOrigin(tagForParent(absMom));
 
         // propagate existing properties
         for (Candidate::PropertyMap::const_iterator it = props.begin(); it != props.end(); ++it)
@@ -307,7 +297,7 @@ void Decays::performDecay(crpropa::Candidate* candidate) const {
 
         // copy states & set identity/kinematics
         c->source   = candidate->source;
-        c->previous = parent->current;
+        c->previous = candidate->current;
         c->created  = parent->current;
         c->current  = candidate->current;
 
@@ -350,14 +340,14 @@ void Decays::process(crpropa::Candidate* candidate) const {
     const double L_mean = c_light * beta * t_lab; // meters
     const double rate   = (L_mean > 0.0) ? 1.0 / L_mean : 0.0;
 
-    const int aId = std::abs(Id);
-    if      (aId == 13)  setDecayTag("MD");
-    else if (aId == 211) setDecayTag("CPD");
-    else if (aId  == 111) setDecayTag("NPD");
-    else if (aId == 15)  setDecayTag("TD");
-    else if (aId == 24)  setDecayTag("WD");
-    else if (aId == 321 || Id == 130 || Id == 310) setDecayTag("KD");
-    else setDecayTag("HD");
+    // const int aId = std::abs(Id);
+    // if      (aId == 13)  setDecayTag("MD");
+    // else if (aId == 211) setDecayTag("CPD");
+    // else if (aId  == 111) setDecayTag("NPD");
+    // else if (aId == 15)  setDecayTag("TD");
+    // else if (aId == 24)  setDecayTag("WD");
+    // else if (aId == 321 || Id == 130 || Id == 310) setDecayTag("KD");
+    // else setDecayTag("HD");
 
     // Exponential decay sampling along the current step
     Random& rng = Random::instance();
