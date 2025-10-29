@@ -4412,232 +4412,234 @@ namespace Swig {
 /* -------- TYPES TABLE (BEGIN) -------- */
 
 #define SWIGTYPE_p_Decays swig_types[0]
-#define SWIGTYPE_p_PropertyMap swig_types[1]
-#define SWIGTYPE_p_SwigPyObject swig_types[2]
-#define SWIGTYPE_p_Vector3c swig_types[3]
-#define SWIGTYPE_p_allocator_type swig_types[4]
-#define SWIGTYPE_p_candidate_vector_t swig_types[5]
-#define SWIGTYPE_p_char swig_types[6]
-#define SWIGTYPE_p_char_type swig_types[7]
-#define SWIGTYPE_p_complex_d swig_types[8]
-#define SWIGTYPE_p_complex_f swig_types[9]
-#define SWIGTYPE_p_const_iterator swig_types[10]
-#define SWIGTYPE_p_crpropa__AbstractAccelerationModule swig_types[11]
-#define SWIGTYPE_p_crpropa__AbstractCondition swig_types[12]
-#define SWIGTYPE_p_crpropa__AdiabaticCooling swig_types[13]
-#define SWIGTYPE_p_crpropa__AdvectionField swig_types[14]
-#define SWIGTYPE_p_crpropa__AdvectionFieldList swig_types[15]
-#define SWIGTYPE_p_crpropa__ArchimedeanSpiralField swig_types[16]
-#define SWIGTYPE_p_crpropa__BlackbodyPhotonField swig_types[17]
-#define SWIGTYPE_p_crpropa__CMB swig_types[18]
-#define SWIGTYPE_p_crpropa__CMZField swig_types[19]
-#define SWIGTYPE_p_crpropa__Candidate swig_types[20]
-#define SWIGTYPE_p_crpropa__CandidateSplitting swig_types[21]
-#define SWIGTYPE_p_crpropa__ConstantDensity swig_types[22]
-#define SWIGTYPE_p_crpropa__ConstantMomentumDiffusion swig_types[23]
-#define SWIGTYPE_p_crpropa__ConstantSphericalAdvectionField swig_types[24]
-#define SWIGTYPE_p_crpropa__Cordes swig_types[25]
-#define SWIGTYPE_p_crpropa__CubicBoundary swig_types[26]
-#define SWIGTYPE_p_crpropa__CylindricalBoundary swig_types[27]
-#define SWIGTYPE_p_crpropa__CylindricalProjectionMap swig_types[28]
-#define SWIGTYPE_p_crpropa__Deactivation swig_types[29]
-#define SWIGTYPE_p_crpropa__Density swig_types[30]
-#define SWIGTYPE_p_crpropa__DensityGrid swig_types[31]
-#define SWIGTYPE_p_crpropa__DensityList swig_types[32]
-#define SWIGTYPE_p_crpropa__DetectionLength swig_types[33]
-#define SWIGTYPE_p_crpropa__DiffusionSDE swig_types[34]
-#define SWIGTYPE_p_crpropa__DirectedFlowOfScatterCenters swig_types[35]
-#define SWIGTYPE_p_crpropa__DirectedFlowScattering swig_types[36]
-#define SWIGTYPE_p_crpropa__EMDoublePairProduction swig_types[37]
-#define SWIGTYPE_p_crpropa__EMInverseComptonScattering swig_types[38]
-#define SWIGTYPE_p_crpropa__EMPairProduction swig_types[39]
-#define SWIGTYPE_p_crpropa__EMTripletPairProduction swig_types[40]
-#define SWIGTYPE_p_crpropa__ElasticScattering swig_types[41]
-#define SWIGTYPE_p_crpropa__ElectronPairProduction swig_types[42]
-#define SWIGTYPE_p_crpropa__EllipsoidalBoundary swig_types[43]
-#define SWIGTYPE_p_crpropa__EmissionMap swig_types[44]
-#define SWIGTYPE_p_crpropa__EmissionMapFiller swig_types[45]
-#define SWIGTYPE_p_crpropa__Ferriere swig_types[46]
-#define SWIGTYPE_p_crpropa__FutureRedshift swig_types[47]
-#define SWIGTYPE_p_crpropa__GridProperties swig_types[48]
-#define SWIGTYPE_p_crpropa__GridT_crpropa__Vector3T_double_t_t swig_types[49]
-#define SWIGTYPE_p_crpropa__GridT_crpropa__Vector3T_float_t_t swig_types[50]
-#define SWIGTYPE_p_crpropa__GridT_double_t swig_types[51]
-#define SWIGTYPE_p_crpropa__GridT_float_t swig_types[52]
-#define SWIGTYPE_p_crpropa__IRB_Dominguez11 swig_types[53]
-#define SWIGTYPE_p_crpropa__IRB_Finke10 swig_types[54]
-#define SWIGTYPE_p_crpropa__IRB_Finke22 swig_types[55]
-#define SWIGTYPE_p_crpropa__IRB_Franceschini08 swig_types[56]
-#define SWIGTYPE_p_crpropa__IRB_Gilmore12 swig_types[57]
-#define SWIGTYPE_p_crpropa__IRB_Kneiske04 swig_types[58]
-#define SWIGTYPE_p_crpropa__IRB_Saldana21 swig_types[59]
-#define SWIGTYPE_p_crpropa__IRB_Saldana21_lower swig_types[60]
-#define SWIGTYPE_p_crpropa__IRB_Saldana21_upper swig_types[61]
-#define SWIGTYPE_p_crpropa__IRB_Stecker05 swig_types[62]
-#define SWIGTYPE_p_crpropa__IRB_Stecker16_lower swig_types[63]
-#define SWIGTYPE_p_crpropa__IRB_Stecker16_upper swig_types[64]
-#define SWIGTYPE_p_crpropa__JF12Field swig_types[65]
-#define SWIGTYPE_p_crpropa__JF12FieldSolenoidal swig_types[66]
-#define SWIGTYPE_p_crpropa__KST24Field swig_types[67]
-#define SWIGTYPE_p_crpropa__LogarithmicSpiralField swig_types[68]
-#define SWIGTYPE_p_crpropa__MagneticDipoleField swig_types[69]
-#define SWIGTYPE_p_crpropa__MagneticField swig_types[70]
-#define SWIGTYPE_p_crpropa__MagneticFieldEvolution swig_types[71]
-#define SWIGTYPE_p_crpropa__MagneticFieldGrid swig_types[72]
-#define SWIGTYPE_p_crpropa__MagneticFieldList swig_types[73]
-#define SWIGTYPE_p_crpropa__MaximumTrajectoryLength swig_types[74]
-#define SWIGTYPE_p_crpropa__MinimumChargeNumber swig_types[75]
-#define SWIGTYPE_p_crpropa__MinimumEnergy swig_types[76]
-#define SWIGTYPE_p_crpropa__MinimumEnergyPerParticleId swig_types[77]
-#define SWIGTYPE_p_crpropa__MinimumRedshift swig_types[78]
-#define SWIGTYPE_p_crpropa__MinimumRigidity swig_types[79]
-#define SWIGTYPE_p_crpropa__ModulatedMagneticFieldGrid swig_types[80]
-#define SWIGTYPE_p_crpropa__Module swig_types[81]
-#define SWIGTYPE_p_crpropa__ModuleList swig_types[82]
-#define SWIGTYPE_p_crpropa__ModuleListRunner swig_types[83]
-#define SWIGTYPE_p_crpropa__Nakanishi swig_types[84]
-#define SWIGTYPE_p_crpropa__NuclearDecay swig_types[85]
-#define SWIGTYPE_p_crpropa__ObliqueAdvectionShock swig_types[86]
-#define SWIGTYPE_p_crpropa__Observer swig_types[87]
-#define SWIGTYPE_p_crpropa__Observer1D swig_types[88]
-#define SWIGTYPE_p_crpropa__ObserverDetectAll swig_types[89]
-#define SWIGTYPE_p_crpropa__ObserverElectronVeto swig_types[90]
-#define SWIGTYPE_p_crpropa__ObserverFeature swig_types[91]
-#define SWIGTYPE_p_crpropa__ObserverInactiveVeto swig_types[92]
-#define SWIGTYPE_p_crpropa__ObserverNeutrinoVeto swig_types[93]
-#define SWIGTYPE_p_crpropa__ObserverNucleusVeto swig_types[94]
-#define SWIGTYPE_p_crpropa__ObserverParticleIdVeto swig_types[95]
-#define SWIGTYPE_p_crpropa__ObserverPhotonVeto swig_types[96]
-#define SWIGTYPE_p_crpropa__ObserverRedshiftWindow swig_types[97]
-#define SWIGTYPE_p_crpropa__ObserverSurface swig_types[98]
-#define SWIGTYPE_p_crpropa__ObserverTimeEvolution swig_types[99]
-#define SWIGTYPE_p_crpropa__ObserverTracking swig_types[100]
-#define SWIGTYPE_p_crpropa__OneDimensionalCartesianShock swig_types[101]
-#define SWIGTYPE_p_crpropa__OneDimensionalSphericalShock swig_types[102]
-#define SWIGTYPE_p_crpropa__OneDimensionalTimeDependentShock swig_types[103]
-#define SWIGTYPE_p_crpropa__Output swig_types[104]
-#define SWIGTYPE_p_crpropa__PT11Field swig_types[105]
-#define SWIGTYPE_p_crpropa__ParaxialBox swig_types[106]
-#define SWIGTYPE_p_crpropa__ParticleCollector swig_types[107]
-#define SWIGTYPE_p_crpropa__ParticleFilter swig_types[108]
-#define SWIGTYPE_p_crpropa__ParticleSplitting swig_types[109]
-#define SWIGTYPE_p_crpropa__PerformanceModule swig_types[110]
-#define SWIGTYPE_p_crpropa__PeriodicBox swig_types[111]
-#define SWIGTYPE_p_crpropa__PeriodicMagneticField swig_types[112]
-#define SWIGTYPE_p_crpropa__PhotoDisintegration swig_types[113]
-#define SWIGTYPE_p_crpropa__PhotoPionProduction swig_types[114]
-#define SWIGTYPE_p_crpropa__PhotonField swig_types[115]
-#define SWIGTYPE_p_crpropa__PhotonOutput1D swig_types[116]
-#define SWIGTYPE_p_crpropa__PlanckJF12bField swig_types[117]
-#define SWIGTYPE_p_crpropa__Plane swig_types[118]
-#define SWIGTYPE_p_crpropa__PlaneWaveTurbulence swig_types[119]
-#define SWIGTYPE_p_crpropa__PolarizedSingleModeMagneticField swig_types[120]
-#define SWIGTYPE_p_crpropa__PropagationBP swig_types[121]
-#define SWIGTYPE_p_crpropa__PropagationCK swig_types[122]
-#define SWIGTYPE_p_crpropa__QuasiLinearTheory swig_types[123]
-#define SWIGTYPE_p_crpropa__Redshift swig_types[124]
-#define SWIGTYPE_p_crpropa__Referenced swig_types[125]
-#define SWIGTYPE_p_crpropa__ReflectiveBox swig_types[126]
-#define SWIGTYPE_p_crpropa__ReflectiveShell swig_types[127]
-#define SWIGTYPE_p_crpropa__RestrictToRegion swig_types[128]
-#define SWIGTYPE_p_crpropa__SecondOrderFermi swig_types[129]
-#define SWIGTYPE_p_crpropa__SedovTaylorBlastWave swig_types[130]
-#define SWIGTYPE_p_crpropa__ShellOutput swig_types[131]
-#define SWIGTYPE_p_crpropa__ShellOutput1D swig_types[132]
-#define SWIGTYPE_p_crpropa__ShellPropertyOutput swig_types[133]
-#define SWIGTYPE_p_crpropa__SimplePropagation swig_types[134]
-#define SWIGTYPE_p_crpropa__Source swig_types[135]
-#define SWIGTYPE_p_crpropa__SourceComposition swig_types[136]
-#define SWIGTYPE_p_crpropa__SourceDensityGrid swig_types[137]
-#define SWIGTYPE_p_crpropa__SourceDensityGrid1D swig_types[138]
-#define SWIGTYPE_p_crpropa__SourceDirectedEmission swig_types[139]
-#define SWIGTYPE_p_crpropa__SourceDirection swig_types[140]
-#define SWIGTYPE_p_crpropa__SourceEmissionCone swig_types[141]
-#define SWIGTYPE_p_crpropa__SourceEmissionMap swig_types[142]
-#define SWIGTYPE_p_crpropa__SourceEnergy swig_types[143]
-#define SWIGTYPE_p_crpropa__SourceFeature swig_types[144]
-#define SWIGTYPE_p_crpropa__SourceInterface swig_types[145]
-#define SWIGTYPE_p_crpropa__SourceIsotropicEmission swig_types[146]
-#define SWIGTYPE_p_crpropa__SourceLambertDistributionOnSphere swig_types[147]
-#define SWIGTYPE_p_crpropa__SourceList swig_types[148]
-#define SWIGTYPE_p_crpropa__SourceMassDistribution swig_types[149]
-#define SWIGTYPE_p_crpropa__SourceMultipleParticleTypes swig_types[150]
-#define SWIGTYPE_p_crpropa__SourceMultiplePositions swig_types[151]
-#define SWIGTYPE_p_crpropa__SourceParticleType swig_types[152]
-#define SWIGTYPE_p_crpropa__SourcePosition swig_types[153]
-#define SWIGTYPE_p_crpropa__SourcePowerLawSpectrum swig_types[154]
-#define SWIGTYPE_p_crpropa__SourcePulsarDistribution swig_types[155]
-#define SWIGTYPE_p_crpropa__SourceRedshift swig_types[156]
-#define SWIGTYPE_p_crpropa__SourceRedshift1D swig_types[157]
-#define SWIGTYPE_p_crpropa__SourceRedshiftEvolution swig_types[158]
-#define SWIGTYPE_p_crpropa__SourceSNRDistribution swig_types[159]
-#define SWIGTYPE_p_crpropa__SourceTag swig_types[160]
-#define SWIGTYPE_p_crpropa__SourceUniform1D swig_types[161]
-#define SWIGTYPE_p_crpropa__SourceUniformBox swig_types[162]
-#define SWIGTYPE_p_crpropa__SourceUniformCylinder swig_types[163]
-#define SWIGTYPE_p_crpropa__SourceUniformHollowSphere swig_types[164]
-#define SWIGTYPE_p_crpropa__SourceUniformRedshift swig_types[165]
-#define SWIGTYPE_p_crpropa__SourceUniformShell swig_types[166]
-#define SWIGTYPE_p_crpropa__SourceUniformSphere swig_types[167]
-#define SWIGTYPE_p_crpropa__Sphere swig_types[168]
-#define SWIGTYPE_p_crpropa__SphericalAdvectionField swig_types[169]
-#define SWIGTYPE_p_crpropa__SphericalAdvectionShock swig_types[170]
-#define SWIGTYPE_p_crpropa__SphericalBoundary swig_types[171]
-#define SWIGTYPE_p_crpropa__StepLengthModifier swig_types[172]
-#define SWIGTYPE_p_crpropa__Surface swig_types[173]
-#define SWIGTYPE_p_crpropa__SynchrotronRadiation swig_types[174]
-#define SWIGTYPE_p_crpropa__TF17Field swig_types[175]
-#define SWIGTYPE_p_crpropa__TabularPhotonField swig_types[176]
-#define SWIGTYPE_p_crpropa__TextOutput swig_types[177]
-#define SWIGTYPE_p_crpropa__ToroidalHaloField swig_types[178]
-#define SWIGTYPE_p_crpropa__TurbulenceSpectrum swig_types[179]
-#define SWIGTYPE_p_crpropa__TurbulentField swig_types[180]
-#define SWIGTYPE_p_crpropa__UF23Field swig_types[181]
-#define SWIGTYPE_p_crpropa__URB_Fixsen11 swig_types[182]
-#define SWIGTYPE_p_crpropa__URB_Nitu21 swig_types[183]
-#define SWIGTYPE_p_crpropa__URB_Protheroe96 swig_types[184]
-#define SWIGTYPE_p_crpropa__UniformAdvectionField swig_types[185]
-#define SWIGTYPE_p_crpropa__UniformMagneticField swig_types[186]
-#define SWIGTYPE_p_crpropa__Vector3T_double_t swig_types[187]
-#define SWIGTYPE_p_crpropa__Vector3T_float_t swig_types[188]
-#define SWIGTYPE_p_difference_type swig_types[189]
-#define SWIGTYPE_p_element_type swig_types[190]
-#define SWIGTYPE_p_first_type swig_types[191]
-#define SWIGTYPE_p_fmtflags swig_types[192]
-#define SWIGTYPE_p_int swig_types[193]
-#define SWIGTYPE_p_int_type swig_types[194]
-#define SWIGTYPE_p_iostate swig_types[195]
-#define SWIGTYPE_p_iterator swig_types[196]
-#define SWIGTYPE_p_key_t swig_types[197]
-#define SWIGTYPE_p_key_type swig_types[198]
-#define SWIGTYPE_p_long_long swig_types[199]
-#define SWIGTYPE_p_map_t swig_types[200]
-#define SWIGTYPE_p_module_list_t swig_types[201]
-#define SWIGTYPE_p_off_type swig_types[202]
-#define SWIGTYPE_p_openmode swig_types[203]
-#define SWIGTYPE_p_pos_type swig_types[204]
-#define SWIGTYPE_p_second_type swig_types[205]
-#define SWIGTYPE_p_seekdir swig_types[206]
-#define SWIGTYPE_p_short swig_types[207]
-#define SWIGTYPE_p_signed_char swig_types[208]
-#define SWIGTYPE_p_size_t swig_types[209]
-#define SWIGTYPE_p_size_type swig_types[210]
-#define SWIGTYPE_p_state_type swig_types[211]
-#define SWIGTYPE_p_std__basic_iosT_char_t swig_types[212]
-#define SWIGTYPE_p_std__basic_iostreamT_char_t swig_types[213]
-#define SWIGTYPE_p_std__basic_istreamT_char_t swig_types[214]
-#define SWIGTYPE_p_std__basic_ostreamT_char_t swig_types[215]
-#define SWIGTYPE_p_traits_type swig_types[216]
-#define SWIGTYPE_p_unsigned_char swig_types[217]
-#define SWIGTYPE_p_unsigned_int swig_types[218]
-#define SWIGTYPE_p_unsigned_long_long swig_types[219]
-#define SWIGTYPE_p_unsigned_short swig_types[220]
-#define SWIGTYPE_p_value_type swig_types[221]
-#define SWIGTYPE_p_vector_const_iterator swig_types[222]
-#define SWIGTYPE_p_vector_iterator swig_types[223]
-#define SWIGTYPE_p_vector_t swig_types[224]
-static swig_type_info *swig_types[226];
-static swig_module_info swig_module = {swig_types, 225, 0, 0, 0, 0};
+#define SWIGTYPE_p_MassTau swig_types[1]
+#define SWIGTYPE_p_PropertyMap swig_types[2]
+#define SWIGTYPE_p_SwigPyObject swig_types[3]
+#define SWIGTYPE_p_Vector3c swig_types[4]
+#define SWIGTYPE_p_allocator_type swig_types[5]
+#define SWIGTYPE_p_candidate_vector_t swig_types[6]
+#define SWIGTYPE_p_char swig_types[7]
+#define SWIGTYPE_p_char_type swig_types[8]
+#define SWIGTYPE_p_complex_d swig_types[9]
+#define SWIGTYPE_p_complex_f swig_types[10]
+#define SWIGTYPE_p_const_iterator swig_types[11]
+#define SWIGTYPE_p_crpropa__AbstractAccelerationModule swig_types[12]
+#define SWIGTYPE_p_crpropa__AbstractCondition swig_types[13]
+#define SWIGTYPE_p_crpropa__AdiabaticCooling swig_types[14]
+#define SWIGTYPE_p_crpropa__AdvectionField swig_types[15]
+#define SWIGTYPE_p_crpropa__AdvectionFieldList swig_types[16]
+#define SWIGTYPE_p_crpropa__AnalyticHadronicLosses swig_types[17]
+#define SWIGTYPE_p_crpropa__ArchimedeanSpiralField swig_types[18]
+#define SWIGTYPE_p_crpropa__BlackbodyPhotonField swig_types[19]
+#define SWIGTYPE_p_crpropa__CMB swig_types[20]
+#define SWIGTYPE_p_crpropa__CMZField swig_types[21]
+#define SWIGTYPE_p_crpropa__Candidate swig_types[22]
+#define SWIGTYPE_p_crpropa__CandidateSplitting swig_types[23]
+#define SWIGTYPE_p_crpropa__ConstantDensity swig_types[24]
+#define SWIGTYPE_p_crpropa__ConstantMomentumDiffusion swig_types[25]
+#define SWIGTYPE_p_crpropa__ConstantSphericalAdvectionField swig_types[26]
+#define SWIGTYPE_p_crpropa__Cordes swig_types[27]
+#define SWIGTYPE_p_crpropa__CubicBoundary swig_types[28]
+#define SWIGTYPE_p_crpropa__CylindricalBoundary swig_types[29]
+#define SWIGTYPE_p_crpropa__CylindricalProjectionMap swig_types[30]
+#define SWIGTYPE_p_crpropa__Deactivation swig_types[31]
+#define SWIGTYPE_p_crpropa__Density swig_types[32]
+#define SWIGTYPE_p_crpropa__DensityGrid swig_types[33]
+#define SWIGTYPE_p_crpropa__DensityList swig_types[34]
+#define SWIGTYPE_p_crpropa__DetectionLength swig_types[35]
+#define SWIGTYPE_p_crpropa__DiffusionSDE swig_types[36]
+#define SWIGTYPE_p_crpropa__DirectedFlowOfScatterCenters swig_types[37]
+#define SWIGTYPE_p_crpropa__DirectedFlowScattering swig_types[38]
+#define SWIGTYPE_p_crpropa__EMDoublePairProduction swig_types[39]
+#define SWIGTYPE_p_crpropa__EMInverseComptonScattering swig_types[40]
+#define SWIGTYPE_p_crpropa__EMPairProduction swig_types[41]
+#define SWIGTYPE_p_crpropa__EMTripletPairProduction swig_types[42]
+#define SWIGTYPE_p_crpropa__ElasticScattering swig_types[43]
+#define SWIGTYPE_p_crpropa__ElectronPairProduction swig_types[44]
+#define SWIGTYPE_p_crpropa__EllipsoidalBoundary swig_types[45]
+#define SWIGTYPE_p_crpropa__EmissionMap swig_types[46]
+#define SWIGTYPE_p_crpropa__EmissionMapFiller swig_types[47]
+#define SWIGTYPE_p_crpropa__Ferriere swig_types[48]
+#define SWIGTYPE_p_crpropa__FutureRedshift swig_types[49]
+#define SWIGTYPE_p_crpropa__GridProperties swig_types[50]
+#define SWIGTYPE_p_crpropa__GridT_crpropa__Vector3T_double_t_t swig_types[51]
+#define SWIGTYPE_p_crpropa__GridT_crpropa__Vector3T_float_t_t swig_types[52]
+#define SWIGTYPE_p_crpropa__GridT_double_t swig_types[53]
+#define SWIGTYPE_p_crpropa__GridT_float_t swig_types[54]
+#define SWIGTYPE_p_crpropa__IRB_Dominguez11 swig_types[55]
+#define SWIGTYPE_p_crpropa__IRB_Finke10 swig_types[56]
+#define SWIGTYPE_p_crpropa__IRB_Finke22 swig_types[57]
+#define SWIGTYPE_p_crpropa__IRB_Franceschini08 swig_types[58]
+#define SWIGTYPE_p_crpropa__IRB_Gilmore12 swig_types[59]
+#define SWIGTYPE_p_crpropa__IRB_Kneiske04 swig_types[60]
+#define SWIGTYPE_p_crpropa__IRB_Saldana21 swig_types[61]
+#define SWIGTYPE_p_crpropa__IRB_Saldana21_lower swig_types[62]
+#define SWIGTYPE_p_crpropa__IRB_Saldana21_upper swig_types[63]
+#define SWIGTYPE_p_crpropa__IRB_Stecker05 swig_types[64]
+#define SWIGTYPE_p_crpropa__IRB_Stecker16_lower swig_types[65]
+#define SWIGTYPE_p_crpropa__IRB_Stecker16_upper swig_types[66]
+#define SWIGTYPE_p_crpropa__JF12Field swig_types[67]
+#define SWIGTYPE_p_crpropa__JF12FieldSolenoidal swig_types[68]
+#define SWIGTYPE_p_crpropa__KST24Field swig_types[69]
+#define SWIGTYPE_p_crpropa__LogarithmicSpiralField swig_types[70]
+#define SWIGTYPE_p_crpropa__MagneticDipoleField swig_types[71]
+#define SWIGTYPE_p_crpropa__MagneticField swig_types[72]
+#define SWIGTYPE_p_crpropa__MagneticFieldEvolution swig_types[73]
+#define SWIGTYPE_p_crpropa__MagneticFieldGrid swig_types[74]
+#define SWIGTYPE_p_crpropa__MagneticFieldList swig_types[75]
+#define SWIGTYPE_p_crpropa__MaximumTrajectoryLength swig_types[76]
+#define SWIGTYPE_p_crpropa__MinimumChargeNumber swig_types[77]
+#define SWIGTYPE_p_crpropa__MinimumEnergy swig_types[78]
+#define SWIGTYPE_p_crpropa__MinimumEnergyPerParticleId swig_types[79]
+#define SWIGTYPE_p_crpropa__MinimumRedshift swig_types[80]
+#define SWIGTYPE_p_crpropa__MinimumRigidity swig_types[81]
+#define SWIGTYPE_p_crpropa__ModulatedMagneticFieldGrid swig_types[82]
+#define SWIGTYPE_p_crpropa__Module swig_types[83]
+#define SWIGTYPE_p_crpropa__ModuleList swig_types[84]
+#define SWIGTYPE_p_crpropa__ModuleListRunner swig_types[85]
+#define SWIGTYPE_p_crpropa__Nakanishi swig_types[86]
+#define SWIGTYPE_p_crpropa__NuclearDecay swig_types[87]
+#define SWIGTYPE_p_crpropa__ObliqueAdvectionShock swig_types[88]
+#define SWIGTYPE_p_crpropa__Observer swig_types[89]
+#define SWIGTYPE_p_crpropa__Observer1D swig_types[90]
+#define SWIGTYPE_p_crpropa__ObserverDetectAll swig_types[91]
+#define SWIGTYPE_p_crpropa__ObserverElectronVeto swig_types[92]
+#define SWIGTYPE_p_crpropa__ObserverFeature swig_types[93]
+#define SWIGTYPE_p_crpropa__ObserverInactiveVeto swig_types[94]
+#define SWIGTYPE_p_crpropa__ObserverNeutrinoVeto swig_types[95]
+#define SWIGTYPE_p_crpropa__ObserverNucleusVeto swig_types[96]
+#define SWIGTYPE_p_crpropa__ObserverParticleIdVeto swig_types[97]
+#define SWIGTYPE_p_crpropa__ObserverPhotonVeto swig_types[98]
+#define SWIGTYPE_p_crpropa__ObserverRedshiftWindow swig_types[99]
+#define SWIGTYPE_p_crpropa__ObserverSurface swig_types[100]
+#define SWIGTYPE_p_crpropa__ObserverTimeEvolution swig_types[101]
+#define SWIGTYPE_p_crpropa__ObserverTracking swig_types[102]
+#define SWIGTYPE_p_crpropa__OneDimensionalCartesianShock swig_types[103]
+#define SWIGTYPE_p_crpropa__OneDimensionalSphericalShock swig_types[104]
+#define SWIGTYPE_p_crpropa__OneDimensionalTimeDependentShock swig_types[105]
+#define SWIGTYPE_p_crpropa__Output swig_types[106]
+#define SWIGTYPE_p_crpropa__PT11Field swig_types[107]
+#define SWIGTYPE_p_crpropa__ParaxialBox swig_types[108]
+#define SWIGTYPE_p_crpropa__ParticleCollector swig_types[109]
+#define SWIGTYPE_p_crpropa__ParticleFilter swig_types[110]
+#define SWIGTYPE_p_crpropa__ParticleSplitting swig_types[111]
+#define SWIGTYPE_p_crpropa__PerformanceModule swig_types[112]
+#define SWIGTYPE_p_crpropa__PeriodicBox swig_types[113]
+#define SWIGTYPE_p_crpropa__PeriodicMagneticField swig_types[114]
+#define SWIGTYPE_p_crpropa__PhotoDisintegration swig_types[115]
+#define SWIGTYPE_p_crpropa__PhotoPionProduction swig_types[116]
+#define SWIGTYPE_p_crpropa__PhotonField swig_types[117]
+#define SWIGTYPE_p_crpropa__PhotonOutput1D swig_types[118]
+#define SWIGTYPE_p_crpropa__PlanckJF12bField swig_types[119]
+#define SWIGTYPE_p_crpropa__Plane swig_types[120]
+#define SWIGTYPE_p_crpropa__PlaneWaveTurbulence swig_types[121]
+#define SWIGTYPE_p_crpropa__PolarizedSingleModeMagneticField swig_types[122]
+#define SWIGTYPE_p_crpropa__PropagationBP swig_types[123]
+#define SWIGTYPE_p_crpropa__PropagationCK swig_types[124]
+#define SWIGTYPE_p_crpropa__QuasiLinearTheory swig_types[125]
+#define SWIGTYPE_p_crpropa__Redshift swig_types[126]
+#define SWIGTYPE_p_crpropa__Referenced swig_types[127]
+#define SWIGTYPE_p_crpropa__ReflectiveBox swig_types[128]
+#define SWIGTYPE_p_crpropa__ReflectiveShell swig_types[129]
+#define SWIGTYPE_p_crpropa__RestrictToRegion swig_types[130]
+#define SWIGTYPE_p_crpropa__SecondOrderFermi swig_types[131]
+#define SWIGTYPE_p_crpropa__SedovTaylorBlastWave swig_types[132]
+#define SWIGTYPE_p_crpropa__ShellOutput swig_types[133]
+#define SWIGTYPE_p_crpropa__ShellOutput1D swig_types[134]
+#define SWIGTYPE_p_crpropa__ShellPropertyOutput swig_types[135]
+#define SWIGTYPE_p_crpropa__SimplePropagation swig_types[136]
+#define SWIGTYPE_p_crpropa__Source swig_types[137]
+#define SWIGTYPE_p_crpropa__SourceComposition swig_types[138]
+#define SWIGTYPE_p_crpropa__SourceDensityGrid swig_types[139]
+#define SWIGTYPE_p_crpropa__SourceDensityGrid1D swig_types[140]
+#define SWIGTYPE_p_crpropa__SourceDirectedEmission swig_types[141]
+#define SWIGTYPE_p_crpropa__SourceDirection swig_types[142]
+#define SWIGTYPE_p_crpropa__SourceEmissionCone swig_types[143]
+#define SWIGTYPE_p_crpropa__SourceEmissionMap swig_types[144]
+#define SWIGTYPE_p_crpropa__SourceEnergy swig_types[145]
+#define SWIGTYPE_p_crpropa__SourceFeature swig_types[146]
+#define SWIGTYPE_p_crpropa__SourceInterface swig_types[147]
+#define SWIGTYPE_p_crpropa__SourceIsotropicEmission swig_types[148]
+#define SWIGTYPE_p_crpropa__SourceLambertDistributionOnSphere swig_types[149]
+#define SWIGTYPE_p_crpropa__SourceList swig_types[150]
+#define SWIGTYPE_p_crpropa__SourceMassDistribution swig_types[151]
+#define SWIGTYPE_p_crpropa__SourceMultipleParticleTypes swig_types[152]
+#define SWIGTYPE_p_crpropa__SourceMultiplePositions swig_types[153]
+#define SWIGTYPE_p_crpropa__SourceParticleType swig_types[154]
+#define SWIGTYPE_p_crpropa__SourcePosition swig_types[155]
+#define SWIGTYPE_p_crpropa__SourcePowerLawSpectrum swig_types[156]
+#define SWIGTYPE_p_crpropa__SourcePulsarDistribution swig_types[157]
+#define SWIGTYPE_p_crpropa__SourceRedshift swig_types[158]
+#define SWIGTYPE_p_crpropa__SourceRedshift1D swig_types[159]
+#define SWIGTYPE_p_crpropa__SourceRedshiftEvolution swig_types[160]
+#define SWIGTYPE_p_crpropa__SourceSNRDistribution swig_types[161]
+#define SWIGTYPE_p_crpropa__SourceTag swig_types[162]
+#define SWIGTYPE_p_crpropa__SourceUniform1D swig_types[163]
+#define SWIGTYPE_p_crpropa__SourceUniformBox swig_types[164]
+#define SWIGTYPE_p_crpropa__SourceUniformCylinder swig_types[165]
+#define SWIGTYPE_p_crpropa__SourceUniformHollowSphere swig_types[166]
+#define SWIGTYPE_p_crpropa__SourceUniformRedshift swig_types[167]
+#define SWIGTYPE_p_crpropa__SourceUniformShell swig_types[168]
+#define SWIGTYPE_p_crpropa__SourceUniformSphere swig_types[169]
+#define SWIGTYPE_p_crpropa__Sphere swig_types[170]
+#define SWIGTYPE_p_crpropa__SphericalAdvectionField swig_types[171]
+#define SWIGTYPE_p_crpropa__SphericalAdvectionShock swig_types[172]
+#define SWIGTYPE_p_crpropa__SphericalBoundary swig_types[173]
+#define SWIGTYPE_p_crpropa__StepLengthModifier swig_types[174]
+#define SWIGTYPE_p_crpropa__Surface swig_types[175]
+#define SWIGTYPE_p_crpropa__SynchrotronRadiation swig_types[176]
+#define SWIGTYPE_p_crpropa__TF17Field swig_types[177]
+#define SWIGTYPE_p_crpropa__TabularPhotonField swig_types[178]
+#define SWIGTYPE_p_crpropa__TextOutput swig_types[179]
+#define SWIGTYPE_p_crpropa__ToroidalHaloField swig_types[180]
+#define SWIGTYPE_p_crpropa__TurbulenceSpectrum swig_types[181]
+#define SWIGTYPE_p_crpropa__TurbulentField swig_types[182]
+#define SWIGTYPE_p_crpropa__UF23Field swig_types[183]
+#define SWIGTYPE_p_crpropa__URB_Fixsen11 swig_types[184]
+#define SWIGTYPE_p_crpropa__URB_Nitu21 swig_types[185]
+#define SWIGTYPE_p_crpropa__URB_Protheroe96 swig_types[186]
+#define SWIGTYPE_p_crpropa__UniformAdvectionField swig_types[187]
+#define SWIGTYPE_p_crpropa__UniformMagneticField swig_types[188]
+#define SWIGTYPE_p_crpropa__Vector3T_double_t swig_types[189]
+#define SWIGTYPE_p_crpropa__Vector3T_float_t swig_types[190]
+#define SWIGTYPE_p_difference_type swig_types[191]
+#define SWIGTYPE_p_element_type swig_types[192]
+#define SWIGTYPE_p_first_type swig_types[193]
+#define SWIGTYPE_p_fmtflags swig_types[194]
+#define SWIGTYPE_p_int swig_types[195]
+#define SWIGTYPE_p_int_type swig_types[196]
+#define SWIGTYPE_p_iostate swig_types[197]
+#define SWIGTYPE_p_iterator swig_types[198]
+#define SWIGTYPE_p_key_t swig_types[199]
+#define SWIGTYPE_p_key_type swig_types[200]
+#define SWIGTYPE_p_long_long swig_types[201]
+#define SWIGTYPE_p_map_t swig_types[202]
+#define SWIGTYPE_p_module_list_t swig_types[203]
+#define SWIGTYPE_p_off_type swig_types[204]
+#define SWIGTYPE_p_openmode swig_types[205]
+#define SWIGTYPE_p_pos_type swig_types[206]
+#define SWIGTYPE_p_second_type swig_types[207]
+#define SWIGTYPE_p_seekdir swig_types[208]
+#define SWIGTYPE_p_short swig_types[209]
+#define SWIGTYPE_p_signed_char swig_types[210]
+#define SWIGTYPE_p_size_t swig_types[211]
+#define SWIGTYPE_p_size_type swig_types[212]
+#define SWIGTYPE_p_state_type swig_types[213]
+#define SWIGTYPE_p_std__basic_iosT_char_t swig_types[214]
+#define SWIGTYPE_p_std__basic_iostreamT_char_t swig_types[215]
+#define SWIGTYPE_p_std__basic_istreamT_char_t swig_types[216]
+#define SWIGTYPE_p_std__basic_ostreamT_char_t swig_types[217]
+#define SWIGTYPE_p_traits_type swig_types[218]
+#define SWIGTYPE_p_unsigned_char swig_types[219]
+#define SWIGTYPE_p_unsigned_int swig_types[220]
+#define SWIGTYPE_p_unsigned_long_long swig_types[221]
+#define SWIGTYPE_p_unsigned_short swig_types[222]
+#define SWIGTYPE_p_value_type swig_types[223]
+#define SWIGTYPE_p_vector_const_iterator swig_types[224]
+#define SWIGTYPE_p_vector_iterator swig_types[225]
+#define SWIGTYPE_p_vector_t swig_types[226]
+static swig_type_info *swig_types[228];
+static swig_module_info swig_module = {swig_types, 227, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -4838,6 +4840,9 @@ SWIG_AsVal_double (PyObject *obj, double *val)
 }
 
 
+  #define SWIG_From_double   PyFloat_FromDouble 
+
+
 #include <float.h>
 
 
@@ -4935,6 +4940,13 @@ SWIG_AsVal_bool (PyObject *obj, bool *val)
     return SWIG_ERROR;
   if (val) *val = r ? true : false;
   return SWIG_OK;
+}
+
+
+SWIGINTERNINLINE PyObject*
+  SWIG_From_bool  (bool value)
+{
+  return PyBool_FromLong(value ? 1 : 0);
 }
 
 
@@ -5111,6 +5123,247 @@ SWIG_From_std_string  (const std::string& s)
 #ifdef __cplusplus
 extern "C" {
 #endif
+SWIGINTERN PyObject *_wrap_MassTau_mass_SI_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  MassTau *arg1 = (MassTau *) 0 ;
+  double arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_MassTau, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MassTau_mass_SI_set" "', argument " "1"" of type '" "MassTau *""'"); 
+  }
+  arg1 = reinterpret_cast< MassTau * >(argp1);
+  ecode2 = SWIG_AsVal_double(swig_obj[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MassTau_mass_SI_set" "', argument " "2"" of type '" "double""'");
+  } 
+  arg2 = static_cast< double >(val2);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    if (arg1) (arg1)->mass_SI = arg2;
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MassTau_mass_SI_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  MassTau *arg1 = (MassTau *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "MassTau_mass_SI_get", 0, 0, 0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_MassTau, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MassTau_mass_SI_get" "', argument " "1"" of type '" "MassTau *""'"); 
+  }
+  arg1 = reinterpret_cast< MassTau * >(argp1);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    result = (double) ((arg1)->mass_SI);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MassTau_tau_s_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  MassTau *arg1 = (MassTau *) 0 ;
+  double arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_MassTau, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MassTau_tau_s_set" "', argument " "1"" of type '" "MassTau *""'"); 
+  }
+  arg1 = reinterpret_cast< MassTau * >(argp1);
+  ecode2 = SWIG_AsVal_double(swig_obj[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MassTau_tau_s_set" "', argument " "2"" of type '" "double""'");
+  } 
+  arg2 = static_cast< double >(val2);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    if (arg1) (arg1)->tau_s = arg2;
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MassTau_tau_s_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  MassTau *arg1 = (MassTau *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "MassTau_tau_s_get", 0, 0, 0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_MassTau, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MassTau_tau_s_get" "', argument " "1"" of type '" "MassTau *""'"); 
+  }
+  arg1 = reinterpret_cast< MassTau * >(argp1);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    result = (double) ((arg1)->tau_s);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MassTau_hasTau_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  MassTau *arg1 = (MassTau *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_MassTau, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MassTau_hasTau_set" "', argument " "1"" of type '" "MassTau *""'"); 
+  }
+  arg1 = reinterpret_cast< MassTau * >(argp1);
+  ecode2 = SWIG_AsVal_bool(swig_obj[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MassTau_hasTau_set" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    if (arg1) (arg1)->hasTau = arg2;
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MassTau_hasTau_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  MassTau *arg1 = (MassTau *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "MassTau_hasTau_get", 0, 0, 0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_MassTau, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MassTau_hasTau_get" "', argument " "1"" of type '" "MassTau *""'"); 
+  }
+  arg1 = reinterpret_cast< MassTau * >(argp1);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    result = (bool) ((arg1)->hasTau);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN int _wrap_new_MassTau(PyObject *self, PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  MassTau *result = 0 ;
+  
+  if (!SWIG_Python_CheckNoKeywords(kwargs, "new_MassTau")) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "new_MassTau", 0, 0, 0)) SWIG_fail;
+  {
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        result = (MassTau *)new MassTau();
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (Swig::DirectorException &e) {
+      SWIG_exception(SWIG_RuntimeError, e.getMessage());
+    } catch (const std::exception& e) {
+      SWIG_exception(SWIG_RuntimeError, e.what());
+    } catch (const char *e) {
+      SWIG_exception(SWIG_RuntimeError, e);
+    }
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MassTau, SWIG_BUILTIN_INIT |  0 );
+  return resultobj == Py_None ? -1 : 0;
+fail:
+  return -1;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_MassTau(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  MassTau *arg1 = (MassTau *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "delete_MassTau", 0, 0, 0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_MassTau, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_MassTau" "', argument " "1"" of type '" "MassTau *""'"); 
+  }
+  arg1 = reinterpret_cast< MassTau * >(argp1);
+  {
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (Swig::DirectorException &e) {
+      SWIG_exception(SWIG_RuntimeError, e.getMessage());
+    } catch (const std::exception& e) {
+      SWIG_exception(SWIG_RuntimeError, e.what());
+    } catch (const char *e) {
+      SWIG_exception(SWIG_RuntimeError, e);
+    }
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGPY_DESTRUCTOR_CLOSURE(_wrap_delete_MassTau) /* defines _wrap_delete_MassTau_destructor_closure */
+
 SWIGINTERN int _wrap_new_Decays__SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   bool arg1 ;
@@ -5690,50 +5943,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Decays_performDecay(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  Decays *arg1 = (Decays *) 0 ;
-  crpropa::Candidate *arg2 = (crpropa::Candidate *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Decays, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Decays_performDecay" "', argument " "1"" of type '" "Decays const *""'"); 
-  }
-  arg1 = reinterpret_cast< Decays * >(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[0], &argp2,SWIGTYPE_p_crpropa__Candidate, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Decays_performDecay" "', argument " "2"" of type '" "crpropa::Candidate *""'"); 
-  }
-  arg2 = reinterpret_cast< crpropa::Candidate * >(argp2);
-  {
-    try {
-      {
-        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-        ((Decays const *)arg1)->performDecay(arg2);
-        SWIG_PYTHON_THREAD_END_ALLOW;
-      }
-    } catch (Swig::DirectorException &e) {
-      SWIG_exception(SWIG_RuntimeError, e.getMessage());
-    } catch (const std::exception& e) {
-      SWIG_exception(SWIG_RuntimeError, e.what());
-    } catch (const char *e) {
-      SWIG_exception(SWIG_RuntimeError, e);
-    }
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_Decays_process(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   Decays *arg1 = (Decays *) 0 ;
@@ -5761,6 +5970,57 @@ SWIGINTERN PyObject *_wrap_Decays_process(PyObject *self, PyObject *args) {
       {
         SWIG_PYTHON_THREAD_BEGIN_ALLOW;
         ((Decays const *)arg1)->process(arg2);
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (Swig::DirectorException &e) {
+      SWIG_exception(SWIG_RuntimeError, e.getMessage());
+    } catch (const std::exception& e) {
+      SWIG_exception(SWIG_RuntimeError, e.what());
+    } catch (const char *e) {
+      SWIG_exception(SWIG_RuntimeError, e);
+    }
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Decays_performDecay(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  Decays *arg1 = (Decays *) 0 ;
+  crpropa::Candidate *arg2 = (crpropa::Candidate *) 0 ;
+  double arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  PyObject *swig_obj[3] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "Decays_performDecay", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Decays, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Decays_performDecay" "', argument " "1"" of type '" "Decays const *""'"); 
+  }
+  arg1 = reinterpret_cast< Decays * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[0], &argp2,SWIGTYPE_p_crpropa__Candidate, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Decays_performDecay" "', argument " "2"" of type '" "crpropa::Candidate *""'"); 
+  }
+  arg2 = reinterpret_cast< crpropa::Candidate * >(argp2);
+  ecode3 = SWIG_AsVal_double(swig_obj[1], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Decays_performDecay" "', argument " "3"" of type '" "double""'");
+  } 
+  arg3 = static_cast< double >(val3);
+  {
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        ((Decays const *)arg1)->performDecay(arg2,arg3);
         SWIG_PYTHON_THREAD_END_ALLOW;
       }
     } catch (Swig::DirectorException &e) {
@@ -5818,6 +6078,246 @@ static PyMethodDef SwigMethods[] = {
 	 { NULL, NULL, 0, NULL }
 };
 
+static SwigPyGetSet MassTau___dict___getset = { SwigPyObject_get___dict__, 0 };
+static SwigPyGetSet MassTau_mass_SI_getset = { _wrap_MassTau_mass_SI_get, _wrap_MassTau_mass_SI_set };
+static SwigPyGetSet MassTau_tau_s_getset = { _wrap_MassTau_tau_s_get, _wrap_MassTau_tau_s_set };
+static SwigPyGetSet MassTau_hasTau_getset = { _wrap_MassTau_hasTau_get, _wrap_MassTau_hasTau_set };
+SWIGINTERN PyGetSetDef SwigPyBuiltin__MassTau_getset[] = {
+    { (char *)"__dict__", SwigPyBuiltin_FunpackGetterClosure, 0, (char *)"mass_SI : double", &MassTau___dict___getset },
+    { (char *)"mass_SI", SwigPyBuiltin_FunpackGetterClosure, SwigPyBuiltin_FunpackSetterClosure, (char *)"mass_SI : double", &MassTau_mass_SI_getset },
+    { (char *)"tau_s", SwigPyBuiltin_FunpackGetterClosure, SwigPyBuiltin_FunpackSetterClosure, (char *)"tau_s : double", &MassTau_tau_s_getset },
+    { (char *)"hasTau", SwigPyBuiltin_FunpackGetterClosure, SwigPyBuiltin_FunpackSetterClosure, (char *)"hasTau : bool", &MassTau_hasTau_getset },
+    { NULL, NULL, NULL, NULL, NULL } /* Sentinel */
+};
+
+SWIGINTERN PyObject *
+SwigPyBuiltin__MassTau_richcompare(PyObject *self, PyObject *other, int op) {
+  PyObject *result = NULL;
+  if (!result && !PyErr_Occurred()) {
+    if (SwigPyObject_Check(self) && SwigPyObject_Check(other)) {
+      result = SwigPyObject_richcompare((SwigPyObject *)self, (SwigPyObject *)other, op);
+    } else {
+      result = Py_NotImplemented;
+      Py_INCREF(result);
+    }
+  }
+  return result;
+}
+
+SWIGINTERN PyMethodDef SwigPyBuiltin__MassTau_methods[] = {
+  { NULL, NULL, 0, NULL } /* Sentinel */
+};
+
+static PyHeapTypeObject SwigPyBuiltin__MassTau_type = {
+  {
+#if PY_VERSION_HEX >= 0x03000000
+    PyVarObject_HEAD_INIT(NULL, 0)
+#else
+    PyObject_HEAD_INIT(NULL)
+    0,                                        /* ob_size */
+#endif
+    "Decays.MassTau",                         /* tp_name */
+    sizeof(SwigPyObject),                     /* tp_basicsize */
+    0,                                        /* tp_itemsize */
+    _wrap_delete_MassTau_destructor_closure,  /* tp_dealloc */
+#if PY_VERSION_HEX < 0x030800b4
+    (printfunc) 0,                            /* tp_print */
+#else
+    (Py_ssize_t) 0,                           /* tp_vectorcall_offset */
+#endif
+    (getattrfunc) 0,                          /* tp_getattr */
+    (setattrfunc) 0,                          /* tp_setattr */
+#if PY_VERSION_HEX >= 0x03000000
+    0,                                        /* tp_compare */
+#else
+    (cmpfunc) 0,                              /* tp_compare */
+#endif
+    (reprfunc) 0,                             /* tp_repr */
+    &SwigPyBuiltin__MassTau_type.as_number,   /* tp_as_number */
+    &SwigPyBuiltin__MassTau_type.as_sequence, /* tp_as_sequence */
+    &SwigPyBuiltin__MassTau_type.as_mapping,  /* tp_as_mapping */
+    SwigPyObject_hash,                        /* tp_hash */
+    (ternaryfunc) 0,                          /* tp_call */
+    (reprfunc) 0,                             /* tp_str */
+    (getattrofunc) 0,                         /* tp_getattro */
+    (setattrofunc) 0,                         /* tp_setattro */
+    &SwigPyBuiltin__MassTau_type.as_buffer,   /* tp_as_buffer */
+#if PY_VERSION_HEX >= 0x03000000
+    Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,   /* tp_flags */
+#else
+    Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_CHECKTYPES, /* tp_flags */
+#endif
+    "::MassTau",                              /* tp_doc */
+    (traverseproc) 0,                         /* tp_traverse */
+    (inquiry) 0,                              /* tp_clear */
+    SwigPyBuiltin__MassTau_richcompare,       /* tp_richcompare */
+    0,                                        /* tp_weaklistoffset */
+    (getiterfunc) 0,                          /* tp_iter */
+    (iternextfunc) 0,                         /* tp_iternext */
+    SwigPyBuiltin__MassTau_methods,           /* tp_methods */
+    0,                                        /* tp_members */
+    SwigPyBuiltin__MassTau_getset,            /* tp_getset */
+    0,                                        /* tp_base */
+    0,                                        /* tp_dict */
+    (descrgetfunc) 0,                         /* tp_descr_get */
+    (descrsetfunc) 0,                         /* tp_descr_set */
+    offsetof(SwigPyObject, dict),             /* tp_dictoffset */
+    _wrap_new_MassTau,                        /* tp_init */
+    (allocfunc) 0,                            /* tp_alloc */
+    (newfunc) 0,                              /* tp_new */
+    (freefunc) 0,                             /* tp_free */
+    (inquiry) 0,                              /* tp_is_gc */
+    (PyObject *) 0,                           /* tp_bases */
+    (PyObject *) 0,                           /* tp_mro */
+    (PyObject *) 0,                           /* tp_cache */
+    (PyObject *) 0,                           /* tp_subclasses */
+    (PyObject *) 0,                           /* tp_weaklist */
+    (destructor) 0,                           /* tp_del */
+    (int) 0,                                  /* tp_version_tag */
+#if PY_VERSION_HEX >= 0x03040000
+    (destructor) 0,                           /* tp_finalize */
+#endif
+#if PY_VERSION_HEX >= 0x03080000
+    (vectorcallfunc) 0,                       /* tp_vectorcall */
+#endif
+#if (PY_VERSION_HEX >= 0x03080000) && (PY_VERSION_HEX < 0x03090000)
+    0,                                        /* tp_print */
+#endif
+#if PY_VERSION_HEX >= 0x030c0000
+    (char) 0,                                 /* tp_watched */
+#endif
+#ifdef COUNT_ALLOCS
+    (Py_ssize_t) 0,                           /* tp_allocs */
+    (Py_ssize_t) 0,                           /* tp_frees */
+    (Py_ssize_t) 0,                           /* tp_maxalloc */
+    0,                                        /* tp_prev */
+    0,                                        /* tp_next */
+#endif
+  },
+#if PY_VERSION_HEX >= 0x03050000
+  {
+    (unaryfunc) 0,                            /* am_await */
+    (unaryfunc) 0,                            /* am_aiter */
+    (unaryfunc) 0,                            /* am_anext */
+# if PY_VERSION_HEX >= 0x030a0000
+    (sendfunc) 0,                             /* am_send */
+# endif
+  },
+#endif
+  {
+    (binaryfunc) 0,                           /* nb_add */
+    (binaryfunc) 0,                           /* nb_subtract */
+    (binaryfunc) 0,                           /* nb_multiply */
+#if PY_VERSION_HEX < 0x03000000
+    (binaryfunc) 0,                           /* nb_divide */
+#endif
+    (binaryfunc) 0,                           /* nb_remainder */
+    (binaryfunc) 0,                           /* nb_divmod */
+    (ternaryfunc) 0,                          /* nb_power */
+    (unaryfunc) 0,                            /* nb_negative */
+    (unaryfunc) 0,                            /* nb_positive */
+    (unaryfunc) 0,                            /* nb_absolute */
+    (inquiry) 0,                              /* nb_nonzero */
+    (unaryfunc) 0,                            /* nb_invert */
+    (binaryfunc) 0,                           /* nb_lshift */
+    (binaryfunc) 0,                           /* nb_rshift */
+    (binaryfunc) 0,                           /* nb_and */
+    (binaryfunc) 0,                           /* nb_xor */
+    (binaryfunc) 0,                           /* nb_or */
+#if PY_VERSION_HEX < 0x03000000
+    (coercion) 0,                             /* nb_coerce */
+#endif
+    (unaryfunc) 0,                            /* nb_int */
+#if PY_VERSION_HEX >= 0x03000000
+    (void *) 0,                               /* nb_reserved */
+#else
+    (unaryfunc) 0,                            /* nb_long */
+#endif
+    (unaryfunc) 0,                            /* nb_float */
+#if PY_VERSION_HEX < 0x03000000
+    (unaryfunc) 0,                            /* nb_oct */
+    (unaryfunc) 0,                            /* nb_hex */
+#endif
+    (binaryfunc) 0,                           /* nb_inplace_add */
+    (binaryfunc) 0,                           /* nb_inplace_subtract */
+    (binaryfunc) 0,                           /* nb_inplace_multiply */
+#if PY_VERSION_HEX < 0x03000000
+    (binaryfunc) 0,                           /* nb_inplace_divide */
+#endif
+    (binaryfunc) 0,                           /* nb_inplace_remainder */
+    (ternaryfunc) 0,                          /* nb_inplace_power */
+    (binaryfunc) 0,                           /* nb_inplace_lshift */
+    (binaryfunc) 0,                           /* nb_inplace_rshift */
+    (binaryfunc) 0,                           /* nb_inplace_and */
+    (binaryfunc) 0,                           /* nb_inplace_xor */
+    (binaryfunc) 0,                           /* nb_inplace_or */
+    (binaryfunc) 0,                           /* nb_floor_divide */
+    (binaryfunc) 0,                           /* nb_true_divide */
+    (binaryfunc) 0,                           /* nb_inplace_floor_divide */
+    (binaryfunc) 0,                           /* nb_inplace_true_divide */
+    (unaryfunc) 0,                            /* nb_index */
+#if PY_VERSION_HEX >= 0x03050000
+    (binaryfunc) 0,                           /* nb_matrix_multiply */
+    (binaryfunc) 0,                           /* nb_inplace_matrix_multiply */
+#endif
+  },
+  {
+    (lenfunc) 0,                              /* mp_length */
+    (binaryfunc) 0,                           /* mp_subscript */
+    (objobjargproc) 0,                        /* mp_ass_subscript */
+  },
+  {
+    (lenfunc) 0,                              /* sq_length */
+    (binaryfunc) 0,                           /* sq_concat */
+    (ssizeargfunc) 0,                         /* sq_repeat */
+    (ssizeargfunc) 0,                         /* sq_item */
+#if PY_VERSION_HEX >= 0x03000000
+    (void *) 0,                               /* was_sq_slice */
+#else
+    (ssizessizeargfunc) 0,                    /* sq_slice */
+#endif
+    (ssizeobjargproc) 0,                      /* sq_ass_item */
+#if PY_VERSION_HEX >= 0x03000000
+    (void *) 0,                               /* was_sq_ass_slice */
+#else
+    (ssizessizeobjargproc) 0,                 /* sq_ass_slice */
+#endif
+    (objobjproc) 0,                           /* sq_contains */
+    (binaryfunc) 0,                           /* sq_inplace_concat */
+    (ssizeargfunc) 0,                         /* sq_inplace_repeat */
+  },
+  {
+#if PY_VERSION_HEX < 0x03000000
+    (readbufferproc) 0,                       /* bf_getreadbuffer */
+    (writebufferproc) 0,                      /* bf_getwritebuffer */
+    (segcountproc) 0,                         /* bf_getsegcount */
+    (charbufferproc) 0,                       /* bf_getcharbuffer */
+#endif
+    (getbufferproc) 0,                        /* bf_getbuffer */
+    (releasebufferproc) 0,                    /* bf_releasebuffer */
+  },
+    (PyObject *) 0,                           /* ht_name */
+    (PyObject *) 0,                           /* ht_slots */
+#if PY_VERSION_HEX >= 0x03030000
+    (PyObject *) 0,                           /* ht_qualname */
+    0,                                        /* ht_cached_keys */
+#endif
+#if PY_VERSION_HEX >= 0x03090000
+    (PyObject *) 0,                           /* ht_module */
+#endif
+#if PY_VERSION_HEX >= 0x030b0000
+    (char *) 0,                               /* _ht_tpname */
+  {
+    (PyObject *) 0,                           /* getitem */
+#if PY_VERSION_HEX >= 0x030c0000
+    (uint32_t) 0,                             /* getitem_version */
+#endif
+  }
+#endif
+};
+
+SWIGINTERN SwigPyClientData SwigPyBuiltin__MassTau_clientdata = {0, 0, 0, 0, 0, 0, (PyTypeObject *)&SwigPyBuiltin__MassTau_type};
+
 static SwigPyGetSet Decays___dict___getset = { SwigPyObject_get___dict__, 0 };
 SWIGINTERN PyGetSetDef SwigPyBuiltin__Decays_getset[] = {
     { (char *)"__dict__", SwigPyBuiltin_FunpackGetterClosure, 0, (char *)"Decays : p.Decays", &Decays___dict___getset },
@@ -5839,14 +6339,14 @@ SwigPyBuiltin__Decays_richcompare(PyObject *self, PyObject *other, int op) {
 }
 
 SWIGINTERN PyMethodDef SwigPyBuiltin__Decays_methods[] = {
-  { "setHaveOtherSecondaries", _wrap_Decays_setHaveOtherSecondaries, METH_O, "setHaveOtherSecondaries(Decays self, bool haveOtherSecondaries)" },
-  { "setHaveNeutrinos", _wrap_Decays_setHaveNeutrinos, METH_O, "setHaveNeutrinos(Decays self, bool haveNeutrinos)" },
-  { "setAngularCorrection", _wrap_Decays_setAngularCorrection, METH_O, "setAngularCorrection(Decays self, bool angularCorrection)" },
-  { "setLimit", _wrap_Decays_setLimit, METH_O, "setLimit(Decays self, double limit)" },
+  { "setHaveOtherSecondaries", _wrap_Decays_setHaveOtherSecondaries, METH_O, "setHaveOtherSecondaries(Decays self, bool v)" },
+  { "setHaveNeutrinos", _wrap_Decays_setHaveNeutrinos, METH_O, "setHaveNeutrinos(Decays self, bool v)" },
+  { "setAngularCorrection", _wrap_Decays_setAngularCorrection, METH_O, "setAngularCorrection(Decays self, bool v)" },
+  { "setLimit", _wrap_Decays_setLimit, METH_O, "setLimit(Decays self, double v)" },
   { "setDecayTag", _wrap_Decays_setDecayTag, METH_O, "setDecayTag(Decays self, std::string tag)" },
   { "getDecayTag", _wrap_Decays_getDecayTag, METH_NOARGS, "getDecayTag(Decays self) -> std::string" },
-  { "performDecay", _wrap_Decays_performDecay, METH_O, "performDecay(Decays self, Candidate candidate)" },
   { "process", _wrap_Decays_process, METH_O, "process(Decays self, Candidate candidate)" },
+  { "performDecay", _wrap_Decays_performDecay, METH_VARARGS, "performDecay(Decays self, Candidate candidate, double randDistance)" },
   { NULL, NULL, 0, NULL } /* Sentinel */
 };
 
@@ -6075,6 +6575,9 @@ static void *_p_crpropa__AbstractConditionTo_p_crpropa__Module(void *x, int *SWI
 static void *_p_crpropa__AdiabaticCoolingTo_p_crpropa__Module(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((crpropa::Module *)  ((crpropa::AdiabaticCooling *) x));
 }
+static void *_p_crpropa__AnalyticHadronicLossesTo_p_crpropa__Module(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((crpropa::Module *)  ((crpropa::AnalyticHadronicLosses *) x));
+}
 static void *_p_crpropa__CandidateSplittingTo_p_crpropa__Module(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((crpropa::Module *)  ((crpropa::CandidateSplitting *) x));
 }
@@ -6242,6 +6745,9 @@ static void *_p_crpropa__AdvectionFieldTo_p_crpropa__Referenced(void *x, int *SW
 }
 static void *_p_crpropa__AdvectionFieldListTo_p_crpropa__Referenced(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((crpropa::Referenced *) (crpropa::AdvectionField *) ((crpropa::AdvectionFieldList *) x));
+}
+static void *_p_crpropa__AnalyticHadronicLossesTo_p_crpropa__Referenced(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((crpropa::Referenced *) (crpropa::Module *) ((crpropa::AnalyticHadronicLosses *) x));
 }
 static void *_p_crpropa__ArchimedeanSpiralFieldTo_p_crpropa__Referenced(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((crpropa::Referenced *) (crpropa::MagneticField *) ((crpropa::ArchimedeanSpiralField *) x));
@@ -6769,6 +7275,7 @@ static void *_p_std__basic_iostreamT_char_tTo_p_std__basic_ostreamT_char_t(void 
     return (void *)((std::basic_ostream< char,std::char_traits< char > > *)  ((std::basic_iostream< char,std::char_traits< char > > *) x));
 }
 static swig_type_info _swigt__p_Decays = {"_p_Decays", "Decays *", 0, 0, (void*)&SwigPyBuiltin__Decays_clientdata, 0};
+static swig_type_info _swigt__p_MassTau = {"_p_MassTau", "MassTau *", 0, 0, (void*)&SwigPyBuiltin__MassTau_clientdata, 0};
 static swig_type_info _swigt__p_PropertyMap = {"_p_PropertyMap", "PropertyMap *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_SwigPyObject = {"_p_SwigPyObject", "SwigPyObject *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Vector3c = {"_p_Vector3c", "Vector3c *", 0, 0, (void*)0, 0};
@@ -6788,6 +7295,7 @@ static swig_type_info _swigt__p_crpropa__Module = {"_p_crpropa__Module", "crprop
 static swig_type_info _swigt__p_crpropa__AbstractAccelerationModule = {"_p_crpropa__AbstractAccelerationModule", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_crpropa__AbstractCondition = {"_p_crpropa__AbstractCondition", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_crpropa__AdiabaticCooling = {"_p_crpropa__AdiabaticCooling", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_crpropa__AnalyticHadronicLosses = {"_p_crpropa__AnalyticHadronicLosses", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_crpropa__CandidateSplitting = {"_p_crpropa__CandidateSplitting", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_crpropa__ConstantMomentumDiffusion = {"_p_crpropa__ConstantMomentumDiffusion", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_crpropa__CubicBoundary = {"_p_crpropa__CubicBoundary", 0, 0, 0, 0, 0};
@@ -6996,6 +7504,7 @@ static swig_type_info _swigt__p_vector_t = {"_p_vector_t", "vector_t *", 0, 0, (
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_Decays,
+  &_swigt__p_MassTau,
   &_swigt__p_PropertyMap,
   &_swigt__p_SwigPyObject,
   &_swigt__p_Vector3c,
@@ -7011,6 +7520,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_crpropa__AdiabaticCooling,
   &_swigt__p_crpropa__AdvectionField,
   &_swigt__p_crpropa__AdvectionFieldList,
+  &_swigt__p_crpropa__AnalyticHadronicLosses,
   &_swigt__p_crpropa__ArchimedeanSpiralField,
   &_swigt__p_crpropa__BlackbodyPhotonField,
   &_swigt__p_crpropa__CMB,
@@ -7223,6 +7733,7 @@ static swig_type_info *swig_type_initial[] = {
 };
 
 static swig_cast_info _swigc__p_Decays[] = {  {&_swigt__p_Decays, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MassTau[] = {  {&_swigt__p_MassTau, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PropertyMap[] = {  {&_swigt__p_PropertyMap, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SwigPyObject[] = {  {&_swigt__p_SwigPyObject, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Vector3c[] = {  {&_swigt__p_Vector3c, 0, 0, 0},{0, 0, 0, 0}};
@@ -7241,6 +7752,7 @@ static swig_cast_info _swigc__p_crpropa__GridT_float_t[] = {  {&_swigt__p_crprop
 static swig_cast_info _swigc__p_crpropa__AbstractAccelerationModule[] = {{&_swigt__p_crpropa__AbstractAccelerationModule, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_crpropa__AbstractCondition[] = {{&_swigt__p_crpropa__AbstractCondition, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_crpropa__AdiabaticCooling[] = {{&_swigt__p_crpropa__AdiabaticCooling, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_crpropa__AnalyticHadronicLosses[] = {{&_swigt__p_crpropa__AnalyticHadronicLosses, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_crpropa__CandidateSplitting[] = {{&_swigt__p_crpropa__CandidateSplitting, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_crpropa__ConstantMomentumDiffusion[] = {{&_swigt__p_crpropa__ConstantMomentumDiffusion, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_crpropa__CubicBoundary[] = {{&_swigt__p_crpropa__CubicBoundary, 0, 0, 0},{0, 0, 0, 0}};
@@ -7291,7 +7803,7 @@ static swig_cast_info _swigc__p_crpropa__SimplePropagation[] = {{&_swigt__p_crpr
 static swig_cast_info _swigc__p_crpropa__SphericalBoundary[] = {{&_swigt__p_crpropa__SphericalBoundary, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_crpropa__SynchrotronRadiation[] = {{&_swigt__p_crpropa__SynchrotronRadiation, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_crpropa__TextOutput[] = {{&_swigt__p_crpropa__TextOutput, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_crpropa__Module[] = {  {&_swigt__p_crpropa__Module, 0, 0, 0},  {&_swigt__p_Decays, _p_DecaysTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__AbstractAccelerationModule, _p_crpropa__AbstractAccelerationModuleTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__AbstractCondition, _p_crpropa__AbstractConditionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__AdiabaticCooling, _p_crpropa__AdiabaticCoolingTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__CandidateSplitting, _p_crpropa__CandidateSplittingTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ConstantMomentumDiffusion, _p_crpropa__ConstantMomentumDiffusionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__CubicBoundary, _p_crpropa__CubicBoundaryTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__CylindricalBoundary, _p_crpropa__CylindricalBoundaryTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__Deactivation, _p_crpropa__DeactivationTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__DetectionLength, _p_crpropa__DetectionLengthTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__DiffusionSDE, _p_crpropa__DiffusionSDETo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__DirectedFlowScattering, _p_crpropa__DirectedFlowScatteringTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__EMDoublePairProduction, _p_crpropa__EMDoublePairProductionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__EMInverseComptonScattering, _p_crpropa__EMInverseComptonScatteringTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__EMPairProduction, _p_crpropa__EMPairProductionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__EMTripletPairProduction, _p_crpropa__EMTripletPairProductionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ElasticScattering, _p_crpropa__ElasticScatteringTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ElectronPairProduction, _p_crpropa__ElectronPairProductionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__EllipsoidalBoundary, _p_crpropa__EllipsoidalBoundaryTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__EmissionMapFiller, _p_crpropa__EmissionMapFillerTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__FutureRedshift, _p_crpropa__FutureRedshiftTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__MaximumTrajectoryLength, _p_crpropa__MaximumTrajectoryLengthTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__MinimumChargeNumber, _p_crpropa__MinimumChargeNumberTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__MinimumEnergy, _p_crpropa__MinimumEnergyTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__MinimumEnergyPerParticleId, _p_crpropa__MinimumEnergyPerParticleIdTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__MinimumRedshift, _p_crpropa__MinimumRedshiftTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__MinimumRigidity, _p_crpropa__MinimumRigidityTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ModuleList, _p_crpropa__ModuleListTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ModuleListRunner, _p_crpropa__ModuleListRunnerTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__NuclearDecay, _p_crpropa__NuclearDecayTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__Observer, _p_crpropa__ObserverTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__Output, _p_crpropa__OutputTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ParticleCollector, _p_crpropa__ParticleCollectorTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ParticleFilter, _p_crpropa__ParticleFilterTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ParticleSplitting, _p_crpropa__ParticleSplittingTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__PerformanceModule, _p_crpropa__PerformanceModuleTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__PeriodicBox, _p_crpropa__PeriodicBoxTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__PhotoDisintegration, _p_crpropa__PhotoDisintegrationTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__PhotoPionProduction, _p_crpropa__PhotoPionProductionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__PhotonOutput1D, _p_crpropa__PhotonOutput1DTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__PropagationBP, _p_crpropa__PropagationBPTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__PropagationCK, _p_crpropa__PropagationCKTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__Redshift, _p_crpropa__RedshiftTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ReflectiveBox, _p_crpropa__ReflectiveBoxTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ReflectiveShell, _p_crpropa__ReflectiveShellTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__RestrictToRegion, _p_crpropa__RestrictToRegionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__SecondOrderFermi, _p_crpropa__SecondOrderFermiTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ShellOutput, _p_crpropa__ShellOutputTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ShellOutput1D, _p_crpropa__ShellOutput1DTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ShellPropertyOutput, _p_crpropa__ShellPropertyOutputTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__SimplePropagation, _p_crpropa__SimplePropagationTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__SphericalBoundary, _p_crpropa__SphericalBoundaryTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__SynchrotronRadiation, _p_crpropa__SynchrotronRadiationTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__TextOutput, _p_crpropa__TextOutputTo_p_crpropa__Module, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_crpropa__Module[] = {  {&_swigt__p_crpropa__Module, 0, 0, 0},  {&_swigt__p_Decays, _p_DecaysTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__AbstractAccelerationModule, _p_crpropa__AbstractAccelerationModuleTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__AbstractCondition, _p_crpropa__AbstractConditionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__AdiabaticCooling, _p_crpropa__AdiabaticCoolingTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__AnalyticHadronicLosses, _p_crpropa__AnalyticHadronicLossesTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__CandidateSplitting, _p_crpropa__CandidateSplittingTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ConstantMomentumDiffusion, _p_crpropa__ConstantMomentumDiffusionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__CubicBoundary, _p_crpropa__CubicBoundaryTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__CylindricalBoundary, _p_crpropa__CylindricalBoundaryTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__Deactivation, _p_crpropa__DeactivationTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__DetectionLength, _p_crpropa__DetectionLengthTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__DiffusionSDE, _p_crpropa__DiffusionSDETo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__DirectedFlowScattering, _p_crpropa__DirectedFlowScatteringTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__EMDoublePairProduction, _p_crpropa__EMDoublePairProductionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__EMInverseComptonScattering, _p_crpropa__EMInverseComptonScatteringTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__EMPairProduction, _p_crpropa__EMPairProductionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__EMTripletPairProduction, _p_crpropa__EMTripletPairProductionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ElasticScattering, _p_crpropa__ElasticScatteringTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ElectronPairProduction, _p_crpropa__ElectronPairProductionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__EllipsoidalBoundary, _p_crpropa__EllipsoidalBoundaryTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__EmissionMapFiller, _p_crpropa__EmissionMapFillerTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__FutureRedshift, _p_crpropa__FutureRedshiftTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__MaximumTrajectoryLength, _p_crpropa__MaximumTrajectoryLengthTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__MinimumChargeNumber, _p_crpropa__MinimumChargeNumberTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__MinimumEnergy, _p_crpropa__MinimumEnergyTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__MinimumEnergyPerParticleId, _p_crpropa__MinimumEnergyPerParticleIdTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__MinimumRedshift, _p_crpropa__MinimumRedshiftTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__MinimumRigidity, _p_crpropa__MinimumRigidityTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ModuleList, _p_crpropa__ModuleListTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ModuleListRunner, _p_crpropa__ModuleListRunnerTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__NuclearDecay, _p_crpropa__NuclearDecayTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__Observer, _p_crpropa__ObserverTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__Output, _p_crpropa__OutputTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ParticleCollector, _p_crpropa__ParticleCollectorTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ParticleFilter, _p_crpropa__ParticleFilterTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ParticleSplitting, _p_crpropa__ParticleSplittingTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__PerformanceModule, _p_crpropa__PerformanceModuleTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__PeriodicBox, _p_crpropa__PeriodicBoxTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__PhotoDisintegration, _p_crpropa__PhotoDisintegrationTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__PhotoPionProduction, _p_crpropa__PhotoPionProductionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__PhotonOutput1D, _p_crpropa__PhotonOutput1DTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__PropagationBP, _p_crpropa__PropagationBPTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__PropagationCK, _p_crpropa__PropagationCKTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__Redshift, _p_crpropa__RedshiftTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ReflectiveBox, _p_crpropa__ReflectiveBoxTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ReflectiveShell, _p_crpropa__ReflectiveShellTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__RestrictToRegion, _p_crpropa__RestrictToRegionTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__SecondOrderFermi, _p_crpropa__SecondOrderFermiTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ShellOutput, _p_crpropa__ShellOutputTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ShellOutput1D, _p_crpropa__ShellOutput1DTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__ShellPropertyOutput, _p_crpropa__ShellPropertyOutputTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__SimplePropagation, _p_crpropa__SimplePropagationTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__SphericalBoundary, _p_crpropa__SphericalBoundaryTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__SynchrotronRadiation, _p_crpropa__SynchrotronRadiationTo_p_crpropa__Module, 0, 0},  {&_swigt__p_crpropa__TextOutput, _p_crpropa__TextOutputTo_p_crpropa__Module, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_crpropa__AdvectionField[] = {{&_swigt__p_crpropa__AdvectionField, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_crpropa__AdvectionFieldList[] = {{&_swigt__p_crpropa__AdvectionFieldList, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_crpropa__ArchimedeanSpiralField[] = {{&_swigt__p_crpropa__ArchimedeanSpiralField, 0, 0, 0},{0, 0, 0, 0}};
@@ -7408,7 +7920,7 @@ static swig_cast_info _swigc__p_crpropa__URB_Nitu21[] = {{&_swigt__p_crpropa__UR
 static swig_cast_info _swigc__p_crpropa__URB_Protheroe96[] = {{&_swigt__p_crpropa__URB_Protheroe96, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_crpropa__UniformAdvectionField[] = {{&_swigt__p_crpropa__UniformAdvectionField, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_crpropa__UniformMagneticField[] = {{&_swigt__p_crpropa__UniformMagneticField, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_crpropa__Referenced[] = {  {&_swigt__p_crpropa__Referenced, 0, 0, 0},  {&_swigt__p_Decays, _p_DecaysTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__AbstractAccelerationModule, _p_crpropa__AbstractAccelerationModuleTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__AbstractCondition, _p_crpropa__AbstractConditionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__AdiabaticCooling, _p_crpropa__AdiabaticCoolingTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__AdvectionField, _p_crpropa__AdvectionFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__AdvectionFieldList, _p_crpropa__AdvectionFieldListTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ArchimedeanSpiralField, _p_crpropa__ArchimedeanSpiralFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__BlackbodyPhotonField, _p_crpropa__BlackbodyPhotonFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__CMB, _p_crpropa__CMBTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__CMZField, _p_crpropa__CMZFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Candidate, _p_crpropa__CandidateTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__CandidateSplitting, _p_crpropa__CandidateSplittingTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ConstantDensity, _p_crpropa__ConstantDensityTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ConstantMomentumDiffusion, _p_crpropa__ConstantMomentumDiffusionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ConstantSphericalAdvectionField, _p_crpropa__ConstantSphericalAdvectionFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Cordes, _p_crpropa__CordesTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__CubicBoundary, _p_crpropa__CubicBoundaryTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__CylindricalBoundary, _p_crpropa__CylindricalBoundaryTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__CylindricalProjectionMap, _p_crpropa__CylindricalProjectionMapTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Deactivation, _p_crpropa__DeactivationTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Density, _p_crpropa__DensityTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__DensityGrid, _p_crpropa__DensityGridTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__DensityList, _p_crpropa__DensityListTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__DetectionLength, _p_crpropa__DetectionLengthTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__DiffusionSDE, _p_crpropa__DiffusionSDETo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__DirectedFlowOfScatterCenters, _p_crpropa__DirectedFlowOfScatterCentersTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__DirectedFlowScattering, _p_crpropa__DirectedFlowScatteringTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__EMDoublePairProduction, _p_crpropa__EMDoublePairProductionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__EMInverseComptonScattering, _p_crpropa__EMInverseComptonScatteringTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__EMPairProduction, _p_crpropa__EMPairProductionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__EMTripletPairProduction, _p_crpropa__EMTripletPairProductionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ElasticScattering, _p_crpropa__ElasticScatteringTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ElectronPairProduction, _p_crpropa__ElectronPairProductionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__EllipsoidalBoundary, _p_crpropa__EllipsoidalBoundaryTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__EmissionMap, _p_crpropa__EmissionMapTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__EmissionMapFiller, _p_crpropa__EmissionMapFillerTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Ferriere, _p_crpropa__FerriereTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__FutureRedshift, _p_crpropa__FutureRedshiftTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__GridProperties, _p_crpropa__GridPropertiesTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__GridT_crpropa__Vector3T_double_t_t, _p_crpropa__GridT_crpropa__Vector3T_double_t_tTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__GridT_crpropa__Vector3T_float_t_t, _p_crpropa__GridT_crpropa__Vector3T_float_t_tTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__GridT_double_t, _p_crpropa__GridT_double_tTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__GridT_float_t, _p_crpropa__GridT_float_tTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Dominguez11, _p_crpropa__IRB_Dominguez11To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Finke10, _p_crpropa__IRB_Finke10To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Finke22, _p_crpropa__IRB_Finke22To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Franceschini08, _p_crpropa__IRB_Franceschini08To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Gilmore12, _p_crpropa__IRB_Gilmore12To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Kneiske04, _p_crpropa__IRB_Kneiske04To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Saldana21, _p_crpropa__IRB_Saldana21To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Saldana21_lower, _p_crpropa__IRB_Saldana21_lowerTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Saldana21_upper, _p_crpropa__IRB_Saldana21_upperTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Stecker05, _p_crpropa__IRB_Stecker05To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Stecker16_lower, _p_crpropa__IRB_Stecker16_lowerTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Stecker16_upper, _p_crpropa__IRB_Stecker16_upperTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__JF12Field, _p_crpropa__JF12FieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__JF12FieldSolenoidal, _p_crpropa__JF12FieldSolenoidalTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__KST24Field, _p_crpropa__KST24FieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__LogarithmicSpiralField, _p_crpropa__LogarithmicSpiralFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MagneticDipoleField, _p_crpropa__MagneticDipoleFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MagneticField, _p_crpropa__MagneticFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MagneticFieldEvolution, _p_crpropa__MagneticFieldEvolutionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MagneticFieldGrid, _p_crpropa__MagneticFieldGridTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MagneticFieldList, _p_crpropa__MagneticFieldListTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MaximumTrajectoryLength, _p_crpropa__MaximumTrajectoryLengthTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MinimumChargeNumber, _p_crpropa__MinimumChargeNumberTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MinimumEnergy, _p_crpropa__MinimumEnergyTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MinimumEnergyPerParticleId, _p_crpropa__MinimumEnergyPerParticleIdTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MinimumRedshift, _p_crpropa__MinimumRedshiftTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MinimumRigidity, _p_crpropa__MinimumRigidityTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ModulatedMagneticFieldGrid, _p_crpropa__ModulatedMagneticFieldGridTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Module, _p_crpropa__ModuleTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ModuleList, _p_crpropa__ModuleListTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ModuleListRunner, _p_crpropa__ModuleListRunnerTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Nakanishi, _p_crpropa__NakanishiTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__NuclearDecay, _p_crpropa__NuclearDecayTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObliqueAdvectionShock, _p_crpropa__ObliqueAdvectionShockTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Observer, _p_crpropa__ObserverTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Observer1D, _p_crpropa__Observer1DTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverDetectAll, _p_crpropa__ObserverDetectAllTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverElectronVeto, _p_crpropa__ObserverElectronVetoTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverFeature, _p_crpropa__ObserverFeatureTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverInactiveVeto, _p_crpropa__ObserverInactiveVetoTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverNeutrinoVeto, _p_crpropa__ObserverNeutrinoVetoTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverNucleusVeto, _p_crpropa__ObserverNucleusVetoTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverParticleIdVeto, _p_crpropa__ObserverParticleIdVetoTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverPhotonVeto, _p_crpropa__ObserverPhotonVetoTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverRedshiftWindow, _p_crpropa__ObserverRedshiftWindowTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverSurface, _p_crpropa__ObserverSurfaceTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverTimeEvolution, _p_crpropa__ObserverTimeEvolutionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverTracking, _p_crpropa__ObserverTrackingTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__OneDimensionalCartesianShock, _p_crpropa__OneDimensionalCartesianShockTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__OneDimensionalSphericalShock, _p_crpropa__OneDimensionalSphericalShockTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__OneDimensionalTimeDependentShock, _p_crpropa__OneDimensionalTimeDependentShockTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Output, _p_crpropa__OutputTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PT11Field, _p_crpropa__PT11FieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ParaxialBox, _p_crpropa__ParaxialBoxTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ParticleCollector, _p_crpropa__ParticleCollectorTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ParticleFilter, _p_crpropa__ParticleFilterTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ParticleSplitting, _p_crpropa__ParticleSplittingTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PerformanceModule, _p_crpropa__PerformanceModuleTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PeriodicBox, _p_crpropa__PeriodicBoxTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PeriodicMagneticField, _p_crpropa__PeriodicMagneticFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PhotoDisintegration, _p_crpropa__PhotoDisintegrationTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PhotoPionProduction, _p_crpropa__PhotoPionProductionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PhotonField, _p_crpropa__PhotonFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PhotonOutput1D, _p_crpropa__PhotonOutput1DTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PlanckJF12bField, _p_crpropa__PlanckJF12bFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Plane, _p_crpropa__PlaneTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PlaneWaveTurbulence, _p_crpropa__PlaneWaveTurbulenceTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PolarizedSingleModeMagneticField, _p_crpropa__PolarizedSingleModeMagneticFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PropagationBP, _p_crpropa__PropagationBPTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PropagationCK, _p_crpropa__PropagationCKTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__QuasiLinearTheory, _p_crpropa__QuasiLinearTheoryTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Redshift, _p_crpropa__RedshiftTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ReflectiveBox, _p_crpropa__ReflectiveBoxTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ReflectiveShell, _p_crpropa__ReflectiveShellTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__RestrictToRegion, _p_crpropa__RestrictToRegionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SecondOrderFermi, _p_crpropa__SecondOrderFermiTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SedovTaylorBlastWave, _p_crpropa__SedovTaylorBlastWaveTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ShellOutput, _p_crpropa__ShellOutputTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ShellOutput1D, _p_crpropa__ShellOutput1DTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ShellPropertyOutput, _p_crpropa__ShellPropertyOutputTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SimplePropagation, _p_crpropa__SimplePropagationTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Source, _p_crpropa__SourceTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceComposition, _p_crpropa__SourceCompositionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceDensityGrid, _p_crpropa__SourceDensityGridTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceDensityGrid1D, _p_crpropa__SourceDensityGrid1DTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceDirectedEmission, _p_crpropa__SourceDirectedEmissionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceDirection, _p_crpropa__SourceDirectionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceEmissionCone, _p_crpropa__SourceEmissionConeTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceEmissionMap, _p_crpropa__SourceEmissionMapTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceEnergy, _p_crpropa__SourceEnergyTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceFeature, _p_crpropa__SourceFeatureTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceInterface, _p_crpropa__SourceInterfaceTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceIsotropicEmission, _p_crpropa__SourceIsotropicEmissionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceLambertDistributionOnSphere, _p_crpropa__SourceLambertDistributionOnSphereTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceList, _p_crpropa__SourceListTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceMassDistribution, _p_crpropa__SourceMassDistributionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceMultipleParticleTypes, _p_crpropa__SourceMultipleParticleTypesTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceMultiplePositions, _p_crpropa__SourceMultiplePositionsTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceParticleType, _p_crpropa__SourceParticleTypeTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourcePosition, _p_crpropa__SourcePositionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourcePowerLawSpectrum, _p_crpropa__SourcePowerLawSpectrumTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourcePulsarDistribution, _p_crpropa__SourcePulsarDistributionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceRedshift, _p_crpropa__SourceRedshiftTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceRedshift1D, _p_crpropa__SourceRedshift1DTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceRedshiftEvolution, _p_crpropa__SourceRedshiftEvolutionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceSNRDistribution, _p_crpropa__SourceSNRDistributionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceTag, _p_crpropa__SourceTagTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceUniform1D, _p_crpropa__SourceUniform1DTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceUniformBox, _p_crpropa__SourceUniformBoxTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceUniformCylinder, _p_crpropa__SourceUniformCylinderTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceUniformHollowSphere, _p_crpropa__SourceUniformHollowSphereTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceUniformRedshift, _p_crpropa__SourceUniformRedshiftTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceUniformShell, _p_crpropa__SourceUniformShellTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceUniformSphere, _p_crpropa__SourceUniformSphereTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Sphere, _p_crpropa__SphereTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SphericalAdvectionField, _p_crpropa__SphericalAdvectionFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SphericalAdvectionShock, _p_crpropa__SphericalAdvectionShockTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SphericalBoundary, _p_crpropa__SphericalBoundaryTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__StepLengthModifier, _p_crpropa__StepLengthModifierTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Surface, _p_crpropa__SurfaceTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SynchrotronRadiation, _p_crpropa__SynchrotronRadiationTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__TF17Field, _p_crpropa__TF17FieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__TabularPhotonField, _p_crpropa__TabularPhotonFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__TextOutput, _p_crpropa__TextOutputTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ToroidalHaloField, _p_crpropa__ToroidalHaloFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__TurbulenceSpectrum, _p_crpropa__TurbulenceSpectrumTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__TurbulentField, _p_crpropa__TurbulentFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__UF23Field, _p_crpropa__UF23FieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__URB_Fixsen11, _p_crpropa__URB_Fixsen11To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__URB_Nitu21, _p_crpropa__URB_Nitu21To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__URB_Protheroe96, _p_crpropa__URB_Protheroe96To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__UniformAdvectionField, _p_crpropa__UniformAdvectionFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__UniformMagneticField, _p_crpropa__UniformMagneticFieldTo_p_crpropa__Referenced, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_crpropa__Referenced[] = {  {&_swigt__p_crpropa__Referenced, 0, 0, 0},  {&_swigt__p_Decays, _p_DecaysTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__AbstractAccelerationModule, _p_crpropa__AbstractAccelerationModuleTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__AbstractCondition, _p_crpropa__AbstractConditionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__AdiabaticCooling, _p_crpropa__AdiabaticCoolingTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__AdvectionField, _p_crpropa__AdvectionFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__AdvectionFieldList, _p_crpropa__AdvectionFieldListTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__AnalyticHadronicLosses, _p_crpropa__AnalyticHadronicLossesTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ArchimedeanSpiralField, _p_crpropa__ArchimedeanSpiralFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__BlackbodyPhotonField, _p_crpropa__BlackbodyPhotonFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__CMB, _p_crpropa__CMBTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__CMZField, _p_crpropa__CMZFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Candidate, _p_crpropa__CandidateTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__CandidateSplitting, _p_crpropa__CandidateSplittingTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ConstantDensity, _p_crpropa__ConstantDensityTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ConstantMomentumDiffusion, _p_crpropa__ConstantMomentumDiffusionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ConstantSphericalAdvectionField, _p_crpropa__ConstantSphericalAdvectionFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Cordes, _p_crpropa__CordesTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__CubicBoundary, _p_crpropa__CubicBoundaryTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__CylindricalBoundary, _p_crpropa__CylindricalBoundaryTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__CylindricalProjectionMap, _p_crpropa__CylindricalProjectionMapTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Deactivation, _p_crpropa__DeactivationTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Density, _p_crpropa__DensityTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__DensityGrid, _p_crpropa__DensityGridTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__DensityList, _p_crpropa__DensityListTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__DetectionLength, _p_crpropa__DetectionLengthTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__DiffusionSDE, _p_crpropa__DiffusionSDETo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__DirectedFlowOfScatterCenters, _p_crpropa__DirectedFlowOfScatterCentersTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__DirectedFlowScattering, _p_crpropa__DirectedFlowScatteringTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__EMDoublePairProduction, _p_crpropa__EMDoublePairProductionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__EMInverseComptonScattering, _p_crpropa__EMInverseComptonScatteringTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__EMPairProduction, _p_crpropa__EMPairProductionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__EMTripletPairProduction, _p_crpropa__EMTripletPairProductionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ElasticScattering, _p_crpropa__ElasticScatteringTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ElectronPairProduction, _p_crpropa__ElectronPairProductionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__EllipsoidalBoundary, _p_crpropa__EllipsoidalBoundaryTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__EmissionMap, _p_crpropa__EmissionMapTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__EmissionMapFiller, _p_crpropa__EmissionMapFillerTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Ferriere, _p_crpropa__FerriereTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__FutureRedshift, _p_crpropa__FutureRedshiftTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__GridProperties, _p_crpropa__GridPropertiesTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__GridT_crpropa__Vector3T_double_t_t, _p_crpropa__GridT_crpropa__Vector3T_double_t_tTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__GridT_crpropa__Vector3T_float_t_t, _p_crpropa__GridT_crpropa__Vector3T_float_t_tTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__GridT_double_t, _p_crpropa__GridT_double_tTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__GridT_float_t, _p_crpropa__GridT_float_tTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Dominguez11, _p_crpropa__IRB_Dominguez11To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Finke10, _p_crpropa__IRB_Finke10To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Finke22, _p_crpropa__IRB_Finke22To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Franceschini08, _p_crpropa__IRB_Franceschini08To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Gilmore12, _p_crpropa__IRB_Gilmore12To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Kneiske04, _p_crpropa__IRB_Kneiske04To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Saldana21, _p_crpropa__IRB_Saldana21To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Saldana21_lower, _p_crpropa__IRB_Saldana21_lowerTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Saldana21_upper, _p_crpropa__IRB_Saldana21_upperTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Stecker05, _p_crpropa__IRB_Stecker05To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Stecker16_lower, _p_crpropa__IRB_Stecker16_lowerTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__IRB_Stecker16_upper, _p_crpropa__IRB_Stecker16_upperTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__JF12Field, _p_crpropa__JF12FieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__JF12FieldSolenoidal, _p_crpropa__JF12FieldSolenoidalTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__KST24Field, _p_crpropa__KST24FieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__LogarithmicSpiralField, _p_crpropa__LogarithmicSpiralFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MagneticDipoleField, _p_crpropa__MagneticDipoleFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MagneticField, _p_crpropa__MagneticFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MagneticFieldEvolution, _p_crpropa__MagneticFieldEvolutionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MagneticFieldGrid, _p_crpropa__MagneticFieldGridTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MagneticFieldList, _p_crpropa__MagneticFieldListTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MaximumTrajectoryLength, _p_crpropa__MaximumTrajectoryLengthTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MinimumChargeNumber, _p_crpropa__MinimumChargeNumberTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MinimumEnergy, _p_crpropa__MinimumEnergyTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MinimumEnergyPerParticleId, _p_crpropa__MinimumEnergyPerParticleIdTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MinimumRedshift, _p_crpropa__MinimumRedshiftTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__MinimumRigidity, _p_crpropa__MinimumRigidityTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ModulatedMagneticFieldGrid, _p_crpropa__ModulatedMagneticFieldGridTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Module, _p_crpropa__ModuleTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ModuleList, _p_crpropa__ModuleListTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ModuleListRunner, _p_crpropa__ModuleListRunnerTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Nakanishi, _p_crpropa__NakanishiTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__NuclearDecay, _p_crpropa__NuclearDecayTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObliqueAdvectionShock, _p_crpropa__ObliqueAdvectionShockTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Observer, _p_crpropa__ObserverTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Observer1D, _p_crpropa__Observer1DTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverDetectAll, _p_crpropa__ObserverDetectAllTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverElectronVeto, _p_crpropa__ObserverElectronVetoTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverFeature, _p_crpropa__ObserverFeatureTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverInactiveVeto, _p_crpropa__ObserverInactiveVetoTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverNeutrinoVeto, _p_crpropa__ObserverNeutrinoVetoTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverNucleusVeto, _p_crpropa__ObserverNucleusVetoTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverParticleIdVeto, _p_crpropa__ObserverParticleIdVetoTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverPhotonVeto, _p_crpropa__ObserverPhotonVetoTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverRedshiftWindow, _p_crpropa__ObserverRedshiftWindowTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverSurface, _p_crpropa__ObserverSurfaceTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverTimeEvolution, _p_crpropa__ObserverTimeEvolutionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ObserverTracking, _p_crpropa__ObserverTrackingTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__OneDimensionalCartesianShock, _p_crpropa__OneDimensionalCartesianShockTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__OneDimensionalSphericalShock, _p_crpropa__OneDimensionalSphericalShockTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__OneDimensionalTimeDependentShock, _p_crpropa__OneDimensionalTimeDependentShockTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Output, _p_crpropa__OutputTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PT11Field, _p_crpropa__PT11FieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ParaxialBox, _p_crpropa__ParaxialBoxTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ParticleCollector, _p_crpropa__ParticleCollectorTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ParticleFilter, _p_crpropa__ParticleFilterTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ParticleSplitting, _p_crpropa__ParticleSplittingTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PerformanceModule, _p_crpropa__PerformanceModuleTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PeriodicBox, _p_crpropa__PeriodicBoxTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PeriodicMagneticField, _p_crpropa__PeriodicMagneticFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PhotoDisintegration, _p_crpropa__PhotoDisintegrationTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PhotoPionProduction, _p_crpropa__PhotoPionProductionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PhotonField, _p_crpropa__PhotonFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PhotonOutput1D, _p_crpropa__PhotonOutput1DTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PlanckJF12bField, _p_crpropa__PlanckJF12bFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Plane, _p_crpropa__PlaneTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PlaneWaveTurbulence, _p_crpropa__PlaneWaveTurbulenceTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PolarizedSingleModeMagneticField, _p_crpropa__PolarizedSingleModeMagneticFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PropagationBP, _p_crpropa__PropagationBPTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__PropagationCK, _p_crpropa__PropagationCKTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__QuasiLinearTheory, _p_crpropa__QuasiLinearTheoryTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Redshift, _p_crpropa__RedshiftTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ReflectiveBox, _p_crpropa__ReflectiveBoxTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ReflectiveShell, _p_crpropa__ReflectiveShellTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__RestrictToRegion, _p_crpropa__RestrictToRegionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SecondOrderFermi, _p_crpropa__SecondOrderFermiTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SedovTaylorBlastWave, _p_crpropa__SedovTaylorBlastWaveTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ShellOutput, _p_crpropa__ShellOutputTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ShellOutput1D, _p_crpropa__ShellOutput1DTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ShellPropertyOutput, _p_crpropa__ShellPropertyOutputTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SimplePropagation, _p_crpropa__SimplePropagationTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Source, _p_crpropa__SourceTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceComposition, _p_crpropa__SourceCompositionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceDensityGrid, _p_crpropa__SourceDensityGridTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceDensityGrid1D, _p_crpropa__SourceDensityGrid1DTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceDirectedEmission, _p_crpropa__SourceDirectedEmissionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceDirection, _p_crpropa__SourceDirectionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceEmissionCone, _p_crpropa__SourceEmissionConeTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceEmissionMap, _p_crpropa__SourceEmissionMapTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceEnergy, _p_crpropa__SourceEnergyTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceFeature, _p_crpropa__SourceFeatureTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceInterface, _p_crpropa__SourceInterfaceTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceIsotropicEmission, _p_crpropa__SourceIsotropicEmissionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceLambertDistributionOnSphere, _p_crpropa__SourceLambertDistributionOnSphereTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceList, _p_crpropa__SourceListTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceMassDistribution, _p_crpropa__SourceMassDistributionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceMultipleParticleTypes, _p_crpropa__SourceMultipleParticleTypesTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceMultiplePositions, _p_crpropa__SourceMultiplePositionsTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceParticleType, _p_crpropa__SourceParticleTypeTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourcePosition, _p_crpropa__SourcePositionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourcePowerLawSpectrum, _p_crpropa__SourcePowerLawSpectrumTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourcePulsarDistribution, _p_crpropa__SourcePulsarDistributionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceRedshift, _p_crpropa__SourceRedshiftTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceRedshift1D, _p_crpropa__SourceRedshift1DTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceRedshiftEvolution, _p_crpropa__SourceRedshiftEvolutionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceSNRDistribution, _p_crpropa__SourceSNRDistributionTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceTag, _p_crpropa__SourceTagTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceUniform1D, _p_crpropa__SourceUniform1DTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceUniformBox, _p_crpropa__SourceUniformBoxTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceUniformCylinder, _p_crpropa__SourceUniformCylinderTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceUniformHollowSphere, _p_crpropa__SourceUniformHollowSphereTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceUniformRedshift, _p_crpropa__SourceUniformRedshiftTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceUniformShell, _p_crpropa__SourceUniformShellTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SourceUniformSphere, _p_crpropa__SourceUniformSphereTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Sphere, _p_crpropa__SphereTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SphericalAdvectionField, _p_crpropa__SphericalAdvectionFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SphericalAdvectionShock, _p_crpropa__SphericalAdvectionShockTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SphericalBoundary, _p_crpropa__SphericalBoundaryTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__StepLengthModifier, _p_crpropa__StepLengthModifierTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__Surface, _p_crpropa__SurfaceTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__SynchrotronRadiation, _p_crpropa__SynchrotronRadiationTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__TF17Field, _p_crpropa__TF17FieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__TabularPhotonField, _p_crpropa__TabularPhotonFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__TextOutput, _p_crpropa__TextOutputTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__ToroidalHaloField, _p_crpropa__ToroidalHaloFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__TurbulenceSpectrum, _p_crpropa__TurbulenceSpectrumTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__TurbulentField, _p_crpropa__TurbulentFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__UF23Field, _p_crpropa__UF23FieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__URB_Fixsen11, _p_crpropa__URB_Fixsen11To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__URB_Nitu21, _p_crpropa__URB_Nitu21To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__URB_Protheroe96, _p_crpropa__URB_Protheroe96To_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__UniformAdvectionField, _p_crpropa__UniformAdvectionFieldTo_p_crpropa__Referenced, 0, 0},  {&_swigt__p_crpropa__UniformMagneticField, _p_crpropa__UniformMagneticFieldTo_p_crpropa__Referenced, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_crpropa__Vector3T_double_t[] = {  {&_swigt__p_crpropa__Vector3T_double_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_crpropa__Vector3T_float_t[] = {  {&_swigt__p_crpropa__Vector3T_float_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_difference_type[] = {  {&_swigt__p_difference_type, 0, 0, 0},{0, 0, 0, 0}};
@@ -7450,6 +7962,7 @@ static swig_cast_info _swigc__p_vector_t[] = {  {&_swigt__p_vector_t, 0, 0, 0},{
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Decays,
+  _swigc__p_MassTau,
   _swigc__p_PropertyMap,
   _swigc__p_SwigPyObject,
   _swigc__p_Vector3c,
@@ -7465,6 +7978,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_crpropa__AdiabaticCooling,
   _swigc__p_crpropa__AdvectionField,
   _swigc__p_crpropa__AdvectionFieldList,
+  _swigc__p_crpropa__AnalyticHadronicLosses,
   _swigc__p_crpropa__ArchimedeanSpiralField,
   _swigc__p_crpropa__BlackbodyPhotonField,
   _swigc__p_crpropa__CMB,
@@ -8142,6 +8656,29 @@ SWIG_init(void) {
   
   SWIG_InstallConstants(d,swig_const_table);
   
+  
+  /* type '::MassTau' */
+  builtin_pytype = (PyTypeObject *)&SwigPyBuiltin__MassTau_type;
+  builtin_pytype->tp_dict = d = PyDict_New();
+  SwigPyBuiltin_SetMetaType(builtin_pytype, metatype);
+  builtin_pytype->tp_new = PyType_GenericNew;
+  builtin_base_count = 0;
+  builtin_bases[builtin_base_count] = NULL;
+  SwigPyBuiltin_InitBases(builtin_pytype, builtin_bases);
+  PyDict_SetItemString(d, "this", this_descr);
+  PyDict_SetItemString(d, "thisown", thisown_descr);
+  if (PyType_Ready(builtin_pytype) < 0) {
+    PyErr_SetString(PyExc_TypeError, "Could not create type 'MassTau'.");
+#if PY_VERSION_HEX >= 0x03000000
+    return NULL;
+#else
+    return;
+#endif
+  }
+  Py_INCREF(builtin_pytype);
+  PyModule_AddObject(m, "MassTau", (PyObject *)builtin_pytype);
+  SwigPyBuiltin_AddPublicSymbol(public_interface, "MassTau");
+  d = md;
   
   /* type '::Decays' */
   builtin_pytype = (PyTypeObject *)&SwigPyBuiltin__Decays_type;
