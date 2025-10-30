@@ -2,54 +2,57 @@
 #define DECAYS_H
 
 #include "crpropa/Module.h"
-
 #include <string>
 
 /**
- * Structure to hold mass and lifetime data
- */
-struct MassTau {
-    double mass_SI;  // kg
-    double tau_s;    // seconds
-    bool hasTau;     // true if particle is unstable
-};
-
-/**
- * @class Decays
- * @brief Particle decay module using Pythia8
+ @class Decays
+ @brief Particle decays using Pythia8
+ 
+ This module handles decays of unstable particles including:
+ - Leptons: muons, taus
+ - Mesons: pions, kaons, charm mesons (D+, D0, Ds)
+ - Baryons: charm baryons (Lambda_c, Xi_c, Sigma_c)
+ 
+ Decay products are generated using Pythia8 with proper kinematics,
+ branching ratios, and angular distributions.
  */
 class Decays : public crpropa::Module {
 private:
-    bool haveOtherSecondaries_;
-    bool haveNeutrinos_;
-    bool angularCorrection_;
-    double limit_;
+    bool haveOtherSecondaries;   // Output non-neutrino secondaries
+    bool haveNeutrinos;          // Output neutrinos
+    bool angularCorrection;      // Apply angular correction from Pythia
+    double limit;                // Limit factor for next step
+    mutable std::string decayTag;  // Tag for decay type
     
-    mutable std::string decayTag_;
-
 public:
     /**
-     * Constructor
-     * @param haveOtherSecondaries  Keep non-neutrino secondaries
-     * @param haveNeutrinos         Keep neutrinos
-     * @param angularCorrection     Apply angular corrections
-     * @param limit                 Step size limit factor
+     Constructor
+     @param haveOtherSecondaries  Output charged particles, photons, hadrons
+     @param haveNeutrinos         Output neutrinos (νe, νμ, ντ)
+     @param angularCorrection     Use Pythia angular distributions
+     @param limit                 Limit factor for propagation step
      */
     Decays(bool haveOtherSecondaries = true,
            bool haveNeutrinos = true,
            bool angularCorrection = true,
            double limit = 0.1);
-
-    // Existing setters
-    void setHaveOtherSecondaries(bool v);
-    void setHaveNeutrinos(bool v);
-    void setAngularCorrection(bool v);
-    void setLimit(double v);
+    
+    // Main processing function
+    void process(crpropa::Candidate *candidate) const;
+    
+    // Perform the actual decay
+    void performDecay(crpropa::Candidate *candidate) const;
+    
+    // Setters
+    void setHaveOtherSecondaries(bool haveOtherSecondaries);
+    void setHaveNeutrinos(bool haveNeutrinos);
+    void setAngularCorrection(bool angularCorrection);
+    void setLimit(double limit);
+    
+    // Decay tag management
     void setDecayTag(std::string tag) const;
     std::string getDecayTag() const;
-
-    void process(crpropa::Candidate* candidate) const;
-    void performDecay(crpropa::Candidate* candidate, double randDistance) const;
+    std::string getDecayTagForParticle(int pdgId) const;
 };
 
 #endif // DECAYS_H
