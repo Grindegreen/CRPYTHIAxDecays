@@ -1,6 +1,3 @@
-// Decays.cpp - Optimized for charm meson decays using Pythia8
-// Handles all particle decays with proper lifetimes and kinematics
-
 #include "Decays.h"
 
 #include "crpropa/Units.h"
@@ -55,7 +52,7 @@ inline Pythia8::Pythia& decay_engine() {
             4122, -4122,  // Lambda_c
             4132, -4132, 4232, -4232,  // Xi_c
             4112, -4112, 4212, -4212, 4222, -4222,  // Sigma_c
-            // Stable particles (won't decay but included for completeness)
+            // Stable particles
             22, 2212, 2112  // gamma, proton, neutron
         };
         
@@ -178,13 +175,14 @@ void Decays::performDecay(crpropa::Candidate *candidate) const {
                   pabs_GeV * dir.x, pabs_GeV * dir.y, pabs_GeV * dir.z,
                   Etot_GeV, m0_GeV);
     }
-    
-    // Perform decay
-    if (!p.moreDecays()) {
-        std::cerr << "Warning: Decay failed for particle " << Id 
-                  << " with E = " << Etot_GeV << " GeV" << std::endl;
+
+    const int motherIdx = 1; // first appended particle
+    bool ok = p.moreDecays();
+    if (!ok) {
+        std::cerr << "Warning: single-step decay failed for PDG " << Id
+                  << " at E=" << Etot_GeV << " GeV" << std::endl;
         return;
-    }
+    }    
     
     // Deactivate parent
     candidate->setActive(false);
@@ -206,9 +204,12 @@ void Decays::performDecay(crpropa::Candidate *candidate) const {
     
     std::string decayTag = getDecayTag();
     
-    // Create secondaries from final state particles
+    // Create secondaries
     for (int i = 0; i < ev.size(); ++i) {
-        if (!ev[i].isFinal()) continue;
+        if (i==motherIdx) continue;  // Skip mother
+
+        // Keep only direct daughters of the mother
+        if (ev[i].mother1() != motherIdx && ev[i].mother2() != motherIdx) continue;
         
         int secId = ev[i].id();
         int absSecId = std::abs(secId);
