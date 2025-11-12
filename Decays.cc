@@ -27,40 +27,41 @@ inline Pythia8::Pythia& decay_engine() {
         p.readString("ProcessLevel:all = off");
         p.readString("HadronLevel:Hadronize = off");
         p.readString("ParticleDecays:limitTau0 = off");
+        p.readString("HadronLevel:Decay = on");    // <-- DO decays
         
         // Enable decays for common particles
-        const int allowIds[] = {
-            // Leptons
-            13, -13,      // muons
-            15, -15,      // taus
-            // Pions
-            111,          // pi0
-            211, -211,    // pi+/-
-            // Kaons
-            130, 310,     // K_L, K_S
-            321, -321,    // K+/-
-            311, -311,    // K0, K0bar
-            // Light resonances
-            113, 213, -213,  // rho
-            223, 221, 331, 333,  // omega, eta, eta', phi
-            313, -313, 323, -323,  // K*
-            // Charm mesons
-            411, -411,    // D+/-
-            421, -421,    // D0/D0bar
-            431, -431,    // Ds+/-
-            // Charm baryons
-            4122, -4122,  // Lambda_c
-            4132, -4132, 4232, -4232,  // Xi_c
-            4112, -4112, 4212, -4212, 4222, -4222,  // Sigma_c
-            // Stable particles
-            22, 2212, 2112  // gamma, proton, neutron
-        };
+        // const int allowIds[] = {
+        //     // Leptons
+        //     13, -13,      // muons
+        //     15, -15,      // taus
+        //     // Pions
+        //     111,          // pi0
+        //     211, -211,    // pi+/-
+        //     // Kaons
+        //     130, 310,     // K_L, K_S
+        //     321, -321,    // K+/-
+        //     311, -311,    // K0, K0bar
+        //     // Light resonances
+        //     113, 213, -213,  // rho
+        //     223, 221, 331, 333,  // omega, eta, eta', phi
+        //     313, -313, 323, -323,  // K*
+        //     // Charm mesons
+        //     411, -411,    // D+/-
+        //     421, -421,    // D0/D0bar
+        //     431, -431,    // Ds+/-
+        //     // Charm baryons
+        //     4122, -4122,  // Lambda_c
+        //     4132, -4132, 4232, -4232,  // Xi_c
+        //     4112, -4112, 4212, -4212, 4222, -4222,  // Sigma_c
+        //     // Stable particles
+        //     22, 2212, 2112  // gamma, proton, neutron
+        // };
         
-        for (int id : allowIds) {
-            if (p.particleData.isParticle(id)) {
-                p.readString(std::to_string(id) + ":mayDecay = on");
-            }
-        }
+        // for (int id : allowIds) {
+        //     if (p.particleData.isParticle(id)) {
+        //         p.readString(std::to_string(id) + ":mayDecay = on");
+        //     }
+        // }
         
         // Seed RNG
         crpropa::Random r;
@@ -83,13 +84,24 @@ struct MassLifetime {
 inline MassLifetime getMassLifetime(int pdgId) {
     Pythia8::Pythia& p = decay_engine();
     if (!p.particleData.isParticle(pdgId)) {
-        return {0.0, 0.0, false};
+        return {0.0, -1.0, false};
     }
     
     double mass = p.particleData.m0(pdgId);  // GeV
-    double tau = p.particleData.tau0(pdgId) * 1e-3 / crpropa::c_light;  // mm/c -> seconds
+    double tau = p.particleData.tau0(pdgId);  // mm/c -> seconds
+    double width = p.particleData.mWidth(pdgId); // GeV
+
+    if (tau > 0.0) {
+        double tau_s = (tau * 1e-3) / crpropa::c_light;  // mm/c -> s
+        return {mass, tau_s, true};
+    }
+    if (width > 0.0) {
+        double hbar_GeVs = 6.582119569e-25;
+        double tau_s = hbar_GeVs / width;
+        return {mass, tau_s, true};
+    }
     
-    return {mass, tau, true};
+    return {mass, -1.0, true};
 }
 
 } // anonymous namespace
@@ -128,7 +140,7 @@ std::string Decays::getDecayTag() const {
     return this->decayTag;
 }
 
-void Decays::performDecay(crpropa::Candidate *candidate) const {
+void Decays::performDecay(crpropa::Candidate *candidate, std::string& decayTag) const {
     using namespace crpropa;
     
     int Id = candidate->current.getId();
@@ -176,7 +188,7 @@ void Decays::performDecay(crpropa::Candidate *candidate) const {
                   Etot_GeV, m0_GeV);
     }
 
-    const int motherIdx = 1; // first appended particle
+    int motherIdx = ev.size() - 1;
     bool ok = p.moreDecays();
     if (!ok) {
         std::cerr << "Warning: single-step decay failed for PDG " << Id
@@ -201,9 +213,7 @@ void Decays::performDecay(crpropa::Candidate *candidate) const {
     double trajectoryLength = candidate->getTrajectoryLength();
     const Candidate::PropertyMap& properties = candidate->properties;
     Candidate* parent = candidate;
-    
-    std::string decayTag = getDecayTag();
-    
+        
     // Create secondaries
     for (int i = 0; i < ev.size(); ++i) {
         if (i==motherIdx) continue;  // Skip mother
@@ -276,12 +286,19 @@ void Decays::process(crpropa::Candidate *candidate) const {
     
     int Id = candidate->current.getId();
     double Ekin_J = candidate->current.getEnergy();
-    double d = candidate->getTrajectoryLength();
+    double step = candidate->getCurrentStep();
+    if (step <= 0) return;
     
     // Get mass and lifetime from Pythia
     MassLifetime ml = getMassLifetime(Id);
-    if (!ml.valid || ml.tau_s <= 0.0) return;
-    
+    if (!ml.valid || ml.tau_s < 0.0) return;
+
+    if (ml.tau_s == 0.0 || ml.tau_s < 1e-18) {
+        std::string tag = getDecayTagForParticle(Id);
+        performDecay(candidate, tag);
+        return;
+    }
+
     // Calculate decay probability
     double m_SI = ml.mass_GeV * GeV / c_squared;
     double gamma = 1.0 + (Ekin_J / (m_SI * c_squared));
@@ -290,23 +307,20 @@ void Decays::process(crpropa::Candidate *candidate) const {
     double beta = (beta2 > 0.0) ? std::sqrt(beta2) : 0.0;
     
     double L_mean = c_light * beta * (gamma * ml.tau_s);
+    double p = 1.0 - std::exp(-step / L_mean);
     double rate = (L_mean > 0.0) ? 1.0 / L_mean : 0.0;
     
     // Sample decay distance
     Random &random = Random::instance();
-    double randDistance = (rate > 0.0) ? -std::log(random.rand()) / rate : 1e300;
-    
-    if (d <= randDistance) {
-        // Not decaying yet
-        if (rate > 0.0) {
-            candidate->limitNextStep(limit / rate);
-        }
+    if (random.rand() < p) {
+        // Decay now
+        std::string tag = getDecayTagForParticle(Id);
+        performDecay(candidate, tag);
+    } else {
+        // No decay
+        candidate->limitNextStep(limit * step / p);
         return;
-    }
-    
-    // Decay now
-    setDecayTag(getDecayTagForParticle(Id));
-    performDecay(candidate);
+    }    
 }
 
 std::string Decays::getDecayTagForParticle(int pdgId) const {

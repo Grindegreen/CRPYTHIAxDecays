@@ -41,7 +41,7 @@ public:
     void process(crpropa::Candidate *candidate) const;
     
     // Perform the actual decay
-    void performDecay(crpropa::Candidate *candidate) const;
+    void performDecay(crpropa::Candidate *candidate, std::string& decayTag) const;
     
     // Setters
     void setHaveOtherSecondaries(bool haveOtherSecondaries);
